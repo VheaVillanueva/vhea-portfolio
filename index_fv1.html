@@ -1,0 +1,2068 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vhea Villanueva — AI & Workflow Automation Specialist</title>
+  <meta name="description"
+    content="AI & Workflow Automation Specialist. 14 years as a Senior Software Engineer, now building n8n, Make, and Zapier systems that run without babysitting.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --charcoal: #121316;
+      --charcoal-deep: #0A0A0C;
+      --line: #2A2C31;
+      --line-soft: #1E2024;
+      --cyan: #7FB8D9;
+      --cyan-bright: #A9D3EB;
+      --paper: #F2F1EC;
+      --paper-dim: #A7ACB4;
+      --amber: #E8A33D;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+      --font-body: 'IBM Plex Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--charcoal);
+      color: var(--paper);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      background-image:
+        radial-gradient(ellipse 900px 500px at 20% -10%, rgba(127, 184, 217, 0.09), transparent 60%),
+        radial-gradient(ellipse 700px 500px at 100% 10%, rgba(232, 163, 61, 0.05), transparent 60%),
+        linear-gradient(var(--line-soft) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+      background-size: auto, auto, 48px 48px, 48px 48px;
+      background-attachment: fixed;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    ::selection {
+      background: var(--amber);
+      color: var(--charcoal-deep);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 3px;
+    }
+
+    /* ---------- FIX 1: wrap now scales with viewport instead of pinning to 1080px,
+     so large / external monitors don't show huge dead margins ---------- */
+    .wrap {
+      max-width: min(1320px, 92vw);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 48px);
+    }
+
+    .reg-mark {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      pointer-events: none;
+    }
+
+    .reg-mark::before,
+    .reg-mark::after {
+      content: '';
+      position: absolute;
+      background: var(--cyan);
+      opacity: .5;
+    }
+
+    .reg-mark::before {
+      width: 100%;
+      height: 1px;
+      top: 50%;
+      left: 0;
+    }
+
+    .reg-mark::after {
+      height: 100%;
+      width: 1px;
+      left: 50%;
+      top: 0;
+    }
+
+    .reg-tl {
+      top: 18px;
+      left: 18px;
+    }
+
+    .reg-tr {
+      top: 18px;
+      right: 18px;
+    }
+
+    .reg-bl {
+      bottom: 18px;
+      left: 18px;
+    }
+
+    .reg-br {
+      bottom: 18px;
+      right: 18px;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--cyan);
+      display: inline-block;
+    }
+
+    /* ---------- reveal-on-scroll ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s cubic-bezier(.16, .8, .3, 1), transform .7s cubic-bezier(.16, .8, .3, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: .08s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: .16s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: .24s;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-anim>* {
+      animation: fadeInUp .8s cubic-bezier(.16, .8, .3, 1) both;
+    }
+
+    .hero-anim>*:nth-child(1) {
+      animation-delay: .05s;
+    }
+
+    .hero-anim>*:nth-child(2) {
+      animation-delay: .15s;
+    }
+
+    .hero-anim>*:nth-child(3) {
+      animation-delay: .25s;
+    }
+
+    .hero-anim>*:nth-child(4) {
+      animation-delay: .35s;
+    }
+
+    .hero-anim>*:nth-child(5) {
+      animation-delay: .45s;
+    }
+
+    /* ---------- flow-line animation for diagrams ---------- */
+    .flow-line {
+      stroke-dasharray: 4 4;
+      animation: flow 1.6s linear infinite;
+    }
+
+    @keyframes flow {
+      to {
+        stroke-dashoffset: -16;
+      }
+    }
+
+    .pulse-node {
+      animation: pulse 2.2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .55;
+      }
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ---------- HERO ---------- */
+    header.hero {
+      position: relative;
+      border-bottom: 1px dashed var(--line);
+      padding: 96px 0 64px;
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.35fr .9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    h1.name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(40px, 6vw, 68px);
+      line-height: 1.03;
+      letter-spacing: -0.01em;
+      margin: 18px 0 10px;
+      color: var(--paper);
+    }
+
+    .role-line {
+      font-family: var(--font-mono);
+      font-size: clamp(15px, 2vw, 19px);
+      color: var(--cyan-bright);
+      margin-bottom: 22px;
+    }
+
+    .hero-copy {
+      max-width: 52ch;
+      color: var(--paper-dim);
+      font-size: 16.5px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      letter-spacing: .03em;
+      padding: 13px 22px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--paper);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: border-color .2s ease, background .2s ease, color .2s ease, transform .2s ease;
+    }
+
+    .btn:hover {
+      border-color: var(--cyan);
+      color: var(--cyan-bright);
+      transform: translateY(-2px);
+    }
+
+    .btn.primary {
+      background: var(--amber);
+      color: var(--charcoal-deep);
+      border-color: var(--amber);
+      font-weight: 600;
+    }
+
+    .btn.primary:hover {
+      background: var(--cyan-bright);
+      border-color: var(--cyan-bright);
+      color: var(--charcoal-deep);
+    }
+
+    /* ---------- HERO PHOTO ---------- */
+    .hero-photo-panel {
+      justify-self: end;
+      width: min(100%, 360px);
+      text-align: center;
+    }
+
+    .hero-photo-frame {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 0 auto 22px;
+    }
+
+    .hero-photo-ring {
+      position: absolute;
+      inset: -14px;
+      border: 1px dashed var(--cyan);
+      border-radius: 50%;
+      opacity: .45;
+      animation: spin 28s linear infinite;
+    }
+
+    .hero-photo-inner {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 50%;
+      border: 1px solid var(--cyan);
+      background: var(--charcoal-deep);
+      box-shadow: 0 0 0 8px rgba(127, 184, 217, .035), 0 0 58px rgba(127, 184, 217, .18);
+      position: relative;
+    }
+
+    .hero-photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-photo-inner img[src="vhea_noglare2.png"] {
+      display: none;
+    }
+
+    .hero-photo-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .09em;
+      color: var(--paper);
+      line-height: 1.8;
+    }
+
+    .hero-photo-fallback span {
+      color: var(--cyan);
+      font-size: 10px;
+    }
+
+    .hero-photo-caption {
+      font-family: var(--font-mono);
+      color: var(--paper);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    /* ---------- TECHNOLOGY STACK ---------- */
+    #technology {
+      padding: 78px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .tech-intro {
+      max-width: 680px;
+      margin-top: 14px;
+      color: var(--paper);
+    }
+
+    .tech-groups {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .tech-group {
+      border: 1px solid #2b3138;
+      background: rgba(10, 10, 12, .42);
+      padding: 24px;
+    }
+
+    .tech-group h3 {
+      font-family: var(--font-mono);
+      color: var(--cyan-bright);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 18px;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tech-pill {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 12px;
+      border: 1px solid #2b3138;
+      background: #17181b;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--paper);
+      transition: .2s ease;
+    }
+
+    .tech-pill:hover {
+      transform: translateY(-2px);
+      border-color: var(--cyan);
+      color: var(--paper);
+    }
+
+    .tech-pill img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(78%) sepia(20%) saturate(642%) hue-rotate(166deg) brightness(94%) contrast(91%);
+      opacity: 1;
+      transition: .2s ease;
+    }
+
+    .tech-pill:hover img {
+      filter: none;
+      opacity: 1;
+    }
+
+    .tech-glyph {
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--cyan);
+      border-radius: 50%;
+      color: var(--cyan-bright);
+      font-size: 10px;
+    }
+
+    /* ---------- MARQUEE ---------- */
+    .marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 1px dashed var(--line);
+      border-bottom: 1px dashed var(--line);
+      background: var(--charcoal-deep);
+      padding: 16px 0;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      width: max-content;
+      animation: marquee 26s linear infinite;
+    }
+
+    .marquee:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    .marquee-group {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .marquee-group span {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--cyan-bright);
+      padding: 0 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .marquee-group span::after {
+      content: '•';
+      color: var(--amber);
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ---------- SPEC STRIP ---------- */
+    .spec-strip {
+      border-bottom: 1px dashed var(--line);
+      background: var(--charcoal-deep);
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .spec-cell {
+      padding: 22px 28px;
+      border-left: 1px dashed var(--line);
+      transition: background .2s ease;
+    }
+
+    .spec-cell:hover {
+      background: rgba(127, 184, 217, 0.06);
+    }
+
+    .spec-cell:first-child {
+      border-left: none;
+    }
+
+    .spec-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 6px;
+    }
+
+    .spec-value {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--paper);
+    }
+
+    .spec-sub {
+      font-size: 12.5px;
+      color: var(--paper-dim);
+      margin-top: 2px;
+    }
+
+    /* ---------- SECTION shell ---------- */
+    section {
+      padding: 88px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-head {
+      margin-bottom: 44px;
+      max-width: 62ch;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(26px, 3.4vw, 36px);
+      margin-top: 14px;
+      color: var(--paper);
+    }
+
+    .section-copy {
+      color: var(--paper-dim);
+      margin-top: 12px;
+      font-size: 15.5px;
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.3fr .9fr;
+      gap: 56px;
+    }
+
+    .about-copy p {
+      color: var(--paper-dim);
+      margin-bottom: 16px;
+      font-size: 15.5px;
+    }
+
+    .about-copy strong {
+      color: var(--paper);
+      font-weight: 600;
+    }
+
+    .timeline {
+      border-left: 1px solid var(--line);
+      padding-left: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 10px 14px 10px 4px;
+      border-radius: 2px;
+      transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -27px;
+      top: 15px;
+      width: 9px;
+      height: 9px;
+      background: var(--charcoal);
+      border: 2px solid var(--cyan);
+      border-radius: 50%;
+      transition: box-shadow .3s ease;
+    }
+
+    /* ---------- FIX 2: timeline items now light up + pop out on hover, matching panels/spec-cells ---------- */
+    .timeline-item:hover {
+      background: rgba(127, 184, 217, 0.07);
+      transform: translateX(8px);
+      box-shadow: 0 14px 32px -18px rgba(127, 184, 217, .4), 0 0 0 1px rgba(127, 184, 217, .15);
+    }
+
+    .timeline-item:hover::before {
+      box-shadow: 0 0 0 5px rgba(127, 184, 217, 0.22);
+      background: var(--cyan);
+    }
+
+    .timeline-item:hover .timeline-title {
+      color: var(--cyan-bright);
+    }
+
+    .timeline-year {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--cyan);
+      letter-spacing: .06em;
+    }
+
+    .timeline-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 15.5px;
+      color: var(--paper);
+      margin-top: 3px;
+      transition: color .2s ease;
+    }
+
+    .timeline-desc {
+      font-size: 13.5px;
+      color: var(--paper-dim);
+      margin-top: 2px;
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.015);
+      padding: 26px 26px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+
+    .panel:hover {
+      border-color: var(--cyan);
+      transform: translateY(-6px);
+      background: rgba(127, 184, 217, 0.035);
+      box-shadow: 0 0 0 1px var(--cyan), 0 24px 60px -22px rgba(127, 184, 217, .4), 0 0 46px -12px rgba(232, 163, 61, .18);
+    }
+
+    .panel-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .panel-index {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--cyan);
+      letter-spacing: .08em;
+    }
+
+    .panel-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 19px;
+      color: var(--paper);
+      margin-top: 4px;
+    }
+
+    .panel-stack {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--charcoal-deep);
+      background: var(--cyan);
+      padding: 3px 8px;
+      letter-spacing: .04em;
+      white-space: nowrap;
+      height: fit-content;
+    }
+
+    .node-diagram {
+      width: 100%;
+      height: auto;
+    }
+
+    .panel-desc {
+      font-size: 14px;
+      color: var(--paper-dim);
+    }
+
+    .panel-footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .panel-result {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--amber);
+      border-top: 1px dashed var(--line);
+      padding-top: 12px;
+    }
+
+    .case-btn {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--cyan-bright);
+      background: none;
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      cursor: pointer;
+      text-align: left;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      align-self: flex-start;
+      transition: border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+
+    .case-btn:hover {
+      border-color: var(--cyan);
+      color: var(--cyan-bright);
+      transform: translateX(4px);
+    }
+
+    /* ---------- PROJECT FILTER BAR ---------- */
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 28px 0 40px;
+    }
+
+    .filter-btn {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--paper-dim);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: border-color .2s ease, color .2s ease, transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--cyan);
+      color: var(--cyan-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px -16px rgba(127, 184, 217, .55);
+    }
+
+    .filter-btn.active {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: var(--charcoal-deep);
+      font-weight: 600;
+    }
+
+    .filter-btn.active:hover {
+      background: var(--cyan-bright);
+      border-color: var(--cyan-bright);
+      color: var(--charcoal-deep);
+      transform: translateY(-2px);
+    }
+
+    .panel-pop {
+      animation: fadeInUp .5s cubic-bezier(.16, .8, .3, 1) both;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact-panel {
+      border: 1px solid var(--line);
+      padding: 48px;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 44px;
+      transition: border-color .3s ease;
+    }
+
+    .contact-panel:hover {
+      border-color: var(--cyan);
+    }
+
+    .contact-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(24px, 3vw, 32px);
+      color: var(--paper);
+    }
+
+    .contact-copy {
+      color: var(--paper-dim);
+      margin-top: 12px;
+      font-size: 15px;
+      max-width: 46ch;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .contact-link {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--cyan-bright);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      width: fit-content;
+      transition: transform .2s ease;
+    }
+
+    .contact-link:hover {
+      border-bottom-color: var(--cyan-bright);
+      transform: translateX(4px);
+    }
+
+    .contact-calendly {
+      border: 1px solid var(--line);
+      background: var(--charcoal-deep);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-calendly iframe {
+      width: 100%;
+      height: 420px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .calendly-fallback {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--paper-dim);
+    }
+
+    .calendly-fallback a {
+      color: var(--cyan-bright);
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--paper-dim);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ---------- CASE STUDY MODAL (expanded format) ---------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 6, 7, 0.82);
+      backdrop-filter: blur(3px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+      z-index: 100;
+    }
+
+    .modal-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal {
+      background: var(--charcoal);
+      border: 1px solid var(--line);
+      max-width: 680px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 34px;
+      position: relative;
+      transform: translateY(14px);
+      transition: transform .25s ease;
+    }
+
+    .modal-overlay.is-open .modal {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: none;
+      border: 1px solid var(--line);
+      color: var(--paper-dim);
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: border-color .2s ease, color .2s ease;
+      z-index: 2;
+    }
+
+    .modal-close:hover {
+      border-color: var(--cyan);
+      color: var(--cyan-bright);
+    }
+
+    .modal-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--charcoal-deep);
+      background: var(--cyan);
+      display: inline-block;
+      padding: 3px 8px;
+      letter-spacing: .05em;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 24px;
+      margin: 14px 0 18px;
+      color: var(--paper);
+      padding-right: 30px;
+    }
+
+    .modal-gallery {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      margin-bottom: 24px;
+      padding-bottom: 6px;
+    }
+
+    .modal-gallery::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .modal-gallery::-webkit-scrollbar-thumb {
+      background: var(--line);
+    }
+
+    .modal-shot {
+      flex: 0 0 82%;
+      scroll-snap-align: start;
+      aspect-ratio: 16/10;
+      border: 1px dashed var(--line);
+      overflow: hidden;
+      position: relative;
+      background: var(--charcoal-deep);
+    }
+
+    .modal-shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .shot-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--paper-dim);
+      text-align: center;
+      letter-spacing: .05em;
+      padding: 10px;
+    }
+
+    .modal-section {
+      margin-bottom: 20px;
+    }
+
+    .modal-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 8px;
+    }
+
+    .modal-section p {
+      font-size: 14.5px;
+      color: var(--paper-dim);
+      margin-bottom: 10px;
+    }
+
+    .modal-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .modal-list li {
+      font-size: 14.5px;
+      color: var(--paper-dim);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .modal-list li::before {
+      content: '•';
+      color: var(--amber);
+      position: absolute;
+      left: 0;
+    }
+
+    .modal-list li strong {
+      color: var(--paper);
+      font-weight: 600;
+    }
+
+    .modal-stacks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .modal-stack-tag {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: .04em;
+      color: var(--cyan-bright);
+      border: 1px solid var(--line);
+      padding: 5px 10px;
+    }
+
+    .modal-video {
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      color: var(--amber);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      padding: 10px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: border-color .2s ease, color .2s ease;
+    }
+
+    .modal-video:hover {
+      border-color: var(--amber);
+      color: var(--cyan-bright);
+    }
+
+    @media (max-width: 860px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photo-panel {
+        justify-self: start;
+        margin-top: 18px;
+      }
+
+      .hero-photo-frame {
+        width: 220px;
+        height: 220px;
+      }
+
+      .tech-groups {
+        grid-template-columns: 1fr;
+      }
+
+      .spec-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .spec-cell:nth-child(3) {
+        border-left: none;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-panel {
+        grid-template-columns: 1fr;
+        padding: 32px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+        animation: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <span class="reg-mark reg-tl"></span>
+    <span class="reg-mark reg-tr"></span>
+    <div class="wrap hero-inner">
+      <div class="hero-anim">
+        <div class="eyebrow">DRAFT 01 — PORTFOLIO</div>
+        <h1 class="name">Vhea Villanueva</h1>
+        <div class="role-line">AI &amp; Workflow Automation Specialist</div>
+        <p class="hero-copy">
+          I spent 14 years shipping production Java systems. Now I build the automation layer —
+          n8n, Make, and Zapier systems wired to AI — that runs a business's busywork
+          without someone babysitting it. Every system below ships with documentation,
+          not just a working demo.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn primary">View systems ↓</a>
+          <a href="#contact" class="btn">Get in touch →</a>
+        </div>
+      </div>
+      <div class="hero-photo-panel hero-anim" aria-label="Professional portrait">
+        <div class="hero-photo-frame">
+          <span class="hero-photo-ring"></span>
+          <div class="hero-photo-inner">
+            <img src="your-photo.jpg" alt="Vhea Villanueva">
+            <div class="hero-photo-fallback">ADD YOUR PHOTO<br><span>your-photo.jpg</span></div>
+          </div>
+        </div>
+        <div class="hero-photo-caption">AI AUTOMATION · SOFTWARE ENGINEERING</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="technology">
+    <div class="wrap">
+      <div class="eyebrow reveal">01 — Technology Stack</div>
+      <h2 class="section-title reveal">Tools I build with. Engineering depth behind them.</h2>
+      <p class="tech-intro reveal">AI automation is the focus; software engineering, cloud, and business systems are the
+        foundation.</p>
+      <div class="tech-groups">
+        <div class="tech-group reveal">
+          <h3>AI &amp; Automation</h3>
+          <div class="tech-list">
+            <span class="tech-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/n8n.svg" alt=""
+                loading="lazy">n8n</span><span class="tech-pill"><img
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/make.svg" alt=""
+                loading="lazy">Make</span><span class="tech-pill"><img
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/zapier.svg" alt=""
+                loading="lazy">Zapier</span><span class="tech-pill"><span class="tech-glyph">AI</span>AI Agents</span>
+            <span class="tech-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openai.svg" alt=""
+                loading="lazy">OpenAI</span><span class="tech-pill"><img
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/anthropic.svg" alt=""
+                loading="lazy">Claude</span><span class="tech-pill"><span class="tech-glyph">↯</span>Webhooks</span>
+            <span class="tech-pill"><span class="tech-glyph">API</span>REST API</span><span class="tech-pill"><span
+                class="tech-glyph">O</span>OAuth</span>
+          </div>
+        </div>
+        <div class="tech-group reveal reveal-delay-1">
+          <h3>Business Systems</h3>
+          <div class="tech-list">
+            <span class="tech-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/hubspot.svg" alt=""
+                loading="lazy">HubSpot</span><span class="tech-pill"><img
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/airtable.svg" alt=""
+                loading="lazy">Airtable</span><span class="tech-pill"><img
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/notion.svg" alt="" loading="lazy">Notion</span>
+            <span class="tech-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/google.svg" alt=""
+                loading="lazy">Google Workspace</span><span class="tech-pill"><img
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/slack.svg" alt="" loading="lazy">Slack</span>
+          </div>
+        </div>
+        <div class="tech-group reveal reveal-delay-2">
+          <h3>Cloud &amp; DevOps</h3>
+          <div class="tech-list">
+            <span class="tech-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/amazonwebservices.svg"
+                alt="" loading="lazy">AWS</span><span class="tech-pill"><img
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/docker.svg" alt=""
+                loading="lazy">Docker</span><span class="tech-pill"><img
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/git.svg" alt="" loading="lazy">Git</span>
+          </div>
+        </div>
+        <div class="tech-group reveal reveal-delay-3">
+          <h3>Software Engineering</h3>
+          <div class="tech-list">
+            <span class="tech-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openjdk.svg" alt=""
+                loading="lazy">Java</span><span class="tech-pill"><img
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/python.svg" alt=""
+                loading="lazy">Python</span><span class="tech-pill"><span class="tech-glyph">DB</span>SQL</span>
+            <span class="tech-pill"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/javascript.svg" alt=""
+                loading="lazy">JavaScript</span><span class="tech-pill"><img
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/gnubash.svg" alt=""
+                loading="lazy">Shell</span><span class="tech-pill"><span class="tech-glyph">PS</span>PowerShell</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <div class="marquee-group">
+        <span>n8n</span><span>Make.com</span><span>Zapier</span><span>OpenAI API</span><span>AI Chat
+          Agents</span><span>Notion</span><span>HubSpot</span><span>Airtable</span><span>Google Workspace</span>
+      </div>
+      <div class="marquee-group">
+        <span>n8n</span><span>Make.com</span><span>Zapier</span><span>OpenAI API</span><span>AI Chat
+          Agents</span><span>Notion</span><span>HubSpot</span><span>Airtable</span><span>Google Workspace</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="spec-strip">
+    <div class="wrap spec-grid">
+      <div class="spec-cell reveal">
+        <div class="spec-label">Experience</div>
+        <div class="spec-value">14 yrs</div>
+        <div class="spec-sub">Software engineering</div>
+      </div>
+      <div class="spec-cell reveal reveal-delay-1">
+        <div class="spec-label">Focus</div>
+        <div class="spec-value">n8n · Make · Zapier</div>
+        <div class="spec-sub">+ AI chat agents</div>
+      </div>
+      <div class="spec-cell reveal reveal-delay-2">
+        <div class="spec-label">Based in</div>
+        <div class="spec-value">Philippines</div>
+        <div class="spec-sub">Async-friendly, PHT</div>
+      </div>
+      <div class="spec-cell reveal reveal-delay-3">
+        <div class="spec-label">Available on</div>
+        <div class="spec-value">Upwork · OLJ · LinkedIn</div>
+        <div class="spec-sub">Open for projects</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div>
+        <div class="eyebrow reveal">02 — Background</div>
+        <h2 class="section-title reveal">Engineer first, automator second.</h2>
+        <div class="about-copy reveal" style="margin-top:26px;">
+          <p>
+            Before automation, I was a <strong>Senior Software Engineer</strong> for 14 years —
+            Java, MySQL, Oracle, and AWS, across Amdocs Philippines, Smart, and SLI.
+            I've shipped systems that had to work correctly the first time and keep working
+            without someone watching them.
+          </p>
+          <p>
+            That's the standard I hold automation work to. A lot of "automation" online is a
+            fragile Zapier chain that breaks the moment a field changes. I build like an
+            engineer: error handling, logging, and documentation included — not bolted on
+            after a client asks why something silently failed.
+          </p>
+          <p>
+            I'm AWS Cloud and AI Practitioner certified, and I work across
+            <strong>Make, Zapier, n8n, Notion, HubSpot, Airtable, Google Workspace, and the
+              OpenAI API</strong> — usually stitching two or three of these together with an AI
+            layer on top.
+          </p>
+        </div>
+      </div>
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-year">14 YRS</div>
+          <div class="timeline-title">Senior Software Engineer</div>
+          <div class="timeline-desc">Amdocs PH · Smart · SLI — Java, MySQL, Oracle, AWS</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">CERT</div>
+          <div class="timeline-title">AWS Cloud Practitioner</div>
+          <div class="timeline-desc">Cloud infrastructure fundamentals</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">CERT</div>
+          <div class="timeline-title">AWS AI Practitioner</div>
+          <div class="timeline-desc">Applied AI/ML foundations</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">NOW</div>
+          <div class="timeline-title">AI & Workflow Automation Specialist</div>
+          <div class="timeline-desc">Freelance — Upwork &amp; Contra</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow reveal">03 — Selected systems</div>
+        <h2 class="section-title reveal">Systems I've built, not templates I've copied.</h2>
+        <p class="section-copy reveal">
+          Each one below is a real workflow with a trigger, a decision layer, and an output.
+          Open a case study for the full breakdown and a link to the walkthrough video.
+        </p>
+      </div>
+
+      <div class="filter-bar reveal" role="group" aria-label="Filter systems by platform">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="n8n">n8n</button>
+        <button class="filter-btn" data-filter="make">Make</button>
+        <button class="filter-btn" data-filter="zapier">Zapier</button>
+      </div>
+
+      <div class="project-grid" id="projectGrid">
+
+        <article class="panel reveal" data-tool="n8n">
+          <div class="panel-top">
+            <div>
+              <div class="panel-index">SYS / 01</div>
+              <div class="panel-title">Nimbus AI Support Agent</div>
+            </div>
+            <div class="panel-stack">n8n</div>
+          </div>
+          <svg class="node-diagram" viewBox="0 0 400 70" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <rect x="8" y="20" width="70" height="30" stroke="#7FB8D9" />
+            <text x="43" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8"
+              text-anchor="middle">INBOX</text>
+            <path class="flow-line" d="M78 35 H150" stroke="#7FB8D9" />
+            <circle class="pulse-node" cx="165" cy="35" r="15" stroke="#E8A33D" stroke-width="1.4" />
+            <text x="165" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">AI</text>
+            <path class="flow-line" d="M180 35 H252" stroke="#7FB8D9" />
+            <rect x="252" y="20" width="80" height="30" stroke="#7FB8D9" />
+            <text x="292" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">REPLY /
+              ROUTE</text>
+          </svg>
+          <p class="panel-desc">A self-hosted n8n agent that reads incoming support requests, classifies intent, and
+            either answers directly or routes to the right human.</p>
+          <div class="panel-footer">
+            <div class="panel-result">→ Cuts first-response time; runs unattended 24/7</div>
+            <button class="case-btn" data-case="sys01">View case study →</button>
+          </div>
+        </article>
+
+        <article class="panel reveal" data-tool="zapier">
+          <div class="panel-top">
+            <div>
+              <div class="panel-index">SYS / 02</div>
+              <div class="panel-title">AI Lead Intelligence System</div>
+            </div>
+            <div class="panel-stack">Zapier</div>
+          </div>
+          <svg class="node-diagram" viewBox="0 0 400 70" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <rect x="8" y="20" width="80" height="30" stroke="#7FB8D9" />
+            <text x="48" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">NEW
+              LEAD</text>
+            <path class="flow-line" d="M88 35 H150" stroke="#7FB8D9" />
+            <circle class="pulse-node" cx="165" cy="35" r="15" stroke="#E8A33D" stroke-width="1.4" />
+            <text x="165" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">AI</text>
+            <path class="flow-line" d="M180 35 H252" stroke="#7FB8D9" />
+            <rect x="252" y="20" width="80" height="30" stroke="#7FB8D9" />
+            <text x="292" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">SCORE +
+              CRM</text>
+          </svg>
+          <p class="panel-desc">Enriches and scores inbound leads automatically, then writes structured intelligence
+            straight into the CRM.</p>
+          <div class="panel-footer">
+            <div class="panel-result">→ Case study + walkthrough available</div>
+            <button class="case-btn" data-case="sys02">View case study →</button>
+          </div>
+        </article>
+
+        <article class="panel reveal" data-tool="make">
+          <div class="panel-top">
+            <div>
+              <div class="panel-index">SYS / 03</div>
+              <div class="panel-title">Lead Intake Automation</div>
+            </div>
+            <div class="panel-stack">Make</div>
+          </div>
+          <svg class="node-diagram" viewBox="0 0 400 70" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <rect x="8" y="20" width="70" height="30" stroke="#7FB8D9" />
+            <text x="43" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8"
+              text-anchor="middle">FORM</text>
+            <path class="flow-line" d="M78 35 H140" stroke="#7FB8D9" />
+            <rect x="140" y="20" width="70" height="30" stroke="#7FB8D9" />
+            <text x="175" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8"
+              text-anchor="middle">VALIDATE</text>
+            <path class="flow-line" d="M210 35 H272" stroke="#7FB8D9" />
+            <rect x="272" y="20" width="90" height="30" stroke="#7FB8D9" />
+            <text x="317" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">ASSIGN +
+              NOTIFY</text>
+          </svg>
+          <p class="panel-desc">Validates, dedupes, and scores every inbound lead, then routes it by budget tier with an
+            AI-drafted follow-up ready to send.</p>
+          <div class="panel-footer">
+            <div class="panel-result">→ Rebuilt through 4 versions to survive edge cases</div>
+            <button class="case-btn" data-case="sys03">View case study →</button>
+          </div>
+        </article>
+
+        <article class="panel reveal" data-tool="make">
+          <div class="panel-top">
+            <div>
+              <div class="panel-index">SYS / 04</div>
+              <div class="panel-title">Notion-to-Client Reporting</div>
+            </div>
+            <div class="panel-stack">Make</div>
+          </div>
+          <svg class="node-diagram" viewBox="0 0 400 70" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <rect x="8" y="20" width="80" height="30" stroke="#7FB8D9" />
+            <text x="48" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">NOTION
+              DB</text>
+            <path class="flow-line" d="M88 35 H150" stroke="#7FB8D9" />
+            <rect x="150" y="20" width="70" height="30" stroke="#7FB8D9" />
+            <text x="185" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8"
+              text-anchor="middle">FORMAT</text>
+            <path class="flow-line" d="M220 35 H282" stroke="#7FB8D9" />
+            <rect x="282" y="20" width="80" height="30" stroke="#7FB8D9" />
+            <text x="322" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">CLIENT
+              REPORT</text>
+          </svg>
+          <p class="panel-desc">Pulls live project data out of a client's Notion workspace and turns it into a
+            scheduled, branded status report.</p>
+          <div class="panel-footer">
+            <div class="panel-result">→ Removes a recurring manual reporting task</div>
+            <button class="case-btn" data-case="sys04">View case study →</button>
+          </div>
+        </article>
+
+        <article class="panel reveal" data-tool="make">
+          <div class="panel-top">
+            <div>
+              <div class="panel-index">SYS / 05</div>
+              <div class="panel-title">AI Support Triage System</div>
+            </div>
+            <div class="panel-stack">Make</div>
+          </div>
+          <svg class="node-diagram" viewBox="0 0 400 70" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <rect x="8" y="20" width="70" height="30" stroke="#7FB8D9" />
+            <text x="43" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8"
+              text-anchor="middle">TICKET</text>
+            <path class="flow-line" d="M78 35 H140" stroke="#7FB8D9" />
+            <circle class="pulse-node" cx="155" cy="35" r="15" stroke="#E8A33D" stroke-width="1.4" />
+            <text x="155" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">AI</text>
+            <path class="flow-line" d="M170 35 H232" stroke="#7FB8D9" />
+            <rect x="232" y="20" width="70" height="30" stroke="#7FB8D9" />
+            <text x="267" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8"
+              text-anchor="middle">PRIORITY</text>
+            <path class="flow-line" d="M302 35 H364" stroke="#7FB8D9" />
+            <rect x="364" y="20" width="30" height="30" stroke="#7FB8D9" />
+            <text x="379" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">Q</text>
+          </svg>
+          <p class="panel-desc">Classifies and prioritizes incoming support tickets by urgency and topic before they hit
+            a queue.</p>
+          <div class="panel-footer">
+            <div class="panel-result">→ Structured triage layer on top of an existing helpdesk</div>
+            <button class="case-btn" data-case="sys05">View case study →</button>
+          </div>
+        </article>
+
+        <article class="panel reveal" data-tool="n8n">
+          <div class="panel-top">
+            <div>
+              <div class="panel-index">SYS / 06</div>
+              <div class="panel-title">AI Jobs Scraper + Resume Optimizer</div>
+            </div>
+            <div class="panel-stack">n8n</div>
+          </div>
+          <svg class="node-diagram" viewBox="0 0 400 70" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <rect x="8" y="20" width="90" height="30" stroke="#7FB8D9" />
+            <text x="53" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">SLACK
+              QUERY</text>
+            <path class="flow-line" d="M98 35 H150" stroke="#7FB8D9" />
+            <circle class="pulse-node" cx="165" cy="35" r="15" stroke="#E8A33D" stroke-width="1.4" />
+            <text x="165" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">AI</text>
+            <path class="flow-line" d="M180 35 H252" stroke="#7FB8D9" />
+            <rect x="252" y="20" width="140" height="30" stroke="#7FB8D9" />
+            <text x="322" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">RESUME +
+              PROPOSAL</text>
+          </svg>
+          <p class="panel-desc">Slack-triggered: validates a search query, pulls live job listings, loops through each
+            one generating a tailored resume and proposal.</p>
+          <div class="panel-footer">
+            <div class="panel-result">→ One Slack message produces ready-to-send applications</div>
+            <button class="case-btn" data-case="sys06">View case study →</button>
+          </div>
+        </article>
+
+        <article class="panel reveal" data-tool="n8n" style="grid-column: 1 / -1;">
+          <div class="panel-top">
+            <div>
+              <div class="panel-index">SYS / 07</div>
+              <div class="panel-title">ASMR Video Creator</div>
+            </div>
+            <div class="panel-stack">n8n</div>
+          </div>
+          <svg class="node-diagram" viewBox="0 0 400 70" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <rect x="8" y="20" width="80" height="30" stroke="#7FB8D9" />
+            <text x="48" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8"
+              text-anchor="middle">SCHEDULE</text>
+            <path class="flow-line" d="M88 35 H150" stroke="#7FB8D9" />
+            <circle class="pulse-node" cx="165" cy="35" r="15" stroke="#E8A33D" stroke-width="1.4" />
+            <text x="165" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">AI</text>
+            <path class="flow-line" d="M180 35 H252" stroke="#7FB8D9" />
+            <rect x="252" y="20" width="140" height="30" stroke="#7FB8D9" />
+            <text x="322" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">RENDER +
+              PUBLISH</text>
+          </svg>
+          <p class="panel-desc">Generates a new video concept while checking memory to avoid repeats, renders it via
+            Vertex AI's Veo model, and publishes to Facebook and YouTube automatically.</p>
+          <div class="panel-footer">
+            <div class="panel-result">→ One scheduled trigger, zero manual steps, two platforms</div>
+            <button class="case-btn" data-case="sys07">View case study →</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-panel reveal">
+        <span class="reg-mark reg-tl"></span>
+        <span class="reg-mark reg-br"></span>
+        <div>
+          <div class="eyebrow">04 — Contact</div>
+          <div class="contact-title" style="margin-top:14px;">Have a process that shouldn't be manual anymore?</div>
+          <p class="contact-copy">I take on a limited number of automation builds at a time so each one gets actual
+            engineering attention. Book a free 30-minute call — no pitch, just a look at what's worth automating first.
+          </p>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:villanuevarja@gmail.com">→ villanuevarja@gmail.com</a>
+            <a class="contact-link" href="https://www.upwork.com/freelancers/~01a562295772681e01" target="_blank"
+              rel="noopener">→ Upwork profile</a>
+            <a class="contact-link" href="www.linkedin.com/in/reveea-joy-villanueva-2b010237" target="_blank" rel="noopener">→
+              LinkedIn</a>
+          </div>
+        </div>
+        <div class="contact-calendly">
+          <div class="eyebrow">Book a discovery call</div>
+          <iframe src="https://calendly.com/villanuevarja/30min" title="Schedule a call with Vhea Villanueva"
+            loading="lazy"></iframe>
+          <div class="calendly-fallback">
+            Widget not loading? <a href="https://calendly.com/villanuevarja/30min" target="_blank" rel="noopener">Book
+              directly here →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>© 2026 VHEA VILLANUEVA</span>
+    <span>SYSTEMS THAT RUN WITHOUT YOU</span>
+  </footer>
+
+  <!-- ---------- CASE STUDY MODAL ---------- -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close case study">✕</button>
+      <div class="modal-tag" id="modalTag"></div>
+      <h3 class="modal-title" id="modalTitle"></h3>
+
+      <div class="modal-gallery" id="modalGallery"></div>
+
+      <div class="modal-section">
+        <div class="modal-label">Client Problem</div>
+        <p id="modalProblem"></p>
+      </div>
+      <div class="modal-section">
+        <div class="modal-label">Project Goal</div>
+        <p id="modalGoal"></p>
+      </div>
+      <div class="modal-section">
+        <div class="modal-label">Solution Overview</div>
+        <p id="modalSolutionIntro"></p>
+        <ul class="modal-list" id="modalSolutionList"></ul>
+      </div>
+      <div class="modal-section">
+        <div class="modal-label">Key Features</div>
+        <ul class="modal-list" id="modalFeatureList"></ul>
+      </div>
+      <div class="modal-section">
+        <div class="modal-label">Business Impact</div>
+        <p id="modalImpactIntro"></p>
+        <ul class="modal-list" id="modalImpactList"></ul>
+      </div>
+      <div class="modal-section">
+        <div class="modal-label">How This Applies To Your Business</div>
+        <ul class="modal-list" id="modalApplyList"></ul>
+      </div>
+
+      <div class="modal-stacks" id="modalStacks"></div>
+
+      <a class="modal-video" id="modalVideo" href="#" target="_blank" rel="noopener">▶ Watch walkthrough</a>
+    </div>
+  </div>
+
+  <script>
+    // ---------- scroll reveal ----------
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) {el.classList.add('is-visible');});
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold: 0.15, rootMargin: '0px 0px -40px 0px'});
+      els.forEach(function (el) {io.observe(el);});
+    })();
+
+    // ---------- project filter ----------
+    (function () {
+      var buttons = document.querySelectorAll('.filter-btn');
+      var panels = document.querySelectorAll('#projectGrid .panel');
+
+      function applyFilter(tool) {
+        panels.forEach(function (p) {
+          var match = tool === 'all' || p.getAttribute('data-tool') === tool;
+          if (match) {
+            p.style.display = '';
+            p.classList.remove('panel-pop');
+            void p.offsetWidth; // restart animation
+            p.classList.add('panel-pop');
+          } else {
+            p.style.display = 'none';
+          }
+        });
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          buttons.forEach(function (b) {b.classList.remove('active');});
+          btn.classList.add('active');
+          applyFilter(btn.getAttribute('data-filter'));
+        });
+      });
+    })();
+
+    // ---------- case study modal ----------
+    (function () {
+      var cases = {
+        sys01: {
+          tag: 'n8n',
+          title: 'Nimbus AI Support Agent',
+          images: ['n8n_nimbus_ingest_kb.png', 'n8n_nimbus_chat_agent.png','n8n_nimbus_sample_chat_widget.png'],
+          problem: 'A SaaS product had no way to answer common product questions instantly — support tickets piled up with the same repeated questions about plans, storage limits and account issues, and customers had to wait for business hours to get an answer.',
+          goal: 'Give customers instant, accurate answers pulled from real product documentation, escalate anything the agent can\'t confidently answer and remember context within a conversation — without hiring another support agent.',
+          solutionIntro: 'Built an n8n AI Agent wired to a Supabase vector database holding the product\'s documentation, deployed as an embeddable chat widget on a self-hosted server.',
+          solutionBullets: [
+            'Product docs are chunked and embedded into Supabase pgvector for retrieval.',
+            'A webhook-triggered AI Agent in n8n retrieves the most relevant chunks for every question asked.',
+            'Session memory keeps track of the conversation so follow-up questions don\'t lose context.',
+            'An escalation tool flags anything outside the agent\'s confidence or scope for a human to pick up.'
+          ],
+          featureBullets: [
+            'Retrieval-augmented answers grounded in real product documentation, not guesses.',
+            'Session memory for natural multi-turn conversations.',
+            'Built-in escalation path so nothing falls through the cracks.',
+            'Deployed as a lightweight embeddable widget — drops into any website.'
+          ],
+          impactIntro: 'After implementation, common questions get resolved instantly instead of waiting on a ticket queue:',
+          impactBullets: [
+            {bold: 'Faster answers.', text: 'Customers get accurate responses in seconds instead of waiting on a ticket queue.'},
+            {bold: 'Lower support load.', text: 'Repetitive questions are handled automatically, freeing the team for complex issues.'},
+            {bold: 'Consistent accuracy.', text: 'Answers are grounded in the same documentation every time, not guesswork.'}
+          ],
+          applyBullets: [
+            'Give customers 24/7 answers without adding headcount.',
+            'Keep answers accurate by connecting the agent to your real documentation, not a static script.',
+            'Free up your team to handle the tickets that actually need a human.'
+          ],
+          stacks: ['n8n', 'Webhook', 'Supabase pgvector', 'AI Agent', 'Session Memory'],
+          video: 'https://youtu.be/pCYuzwLMErw'
+        },
+        sys02: {
+          tag: 'Zapier',
+          title: 'AI Lead Intelligence System',
+          images: ['zap1_ai_lead_sys_p1.png', 'zap1_ai_lead_sys_p2.png', 'subzap_ai_lead_sys_p1.png', 'zap2_ai_lead_sys_p1.png'],
+          problem: 'New leads landed in HubSpot with no prioritization — sales reps spent the first few minutes of every call figuring out who they were talking to and whether the lead was even worth their time.',
+          goal: 'Automatically score and route every new lead the moment it lands, and schedule a staggered follow-up sequence without a rep having to set reminders manually.',
+          solutionIntro: 'A multi-Zap system triggered from HubSpot scores each lead with AI, routes it down the right path, and hands off to a Sub-Zap that staggers follow-up tasks over time.',
+          solutionBullets: [
+            'New HubSpot contact triggers the parent Zap immediately.',
+            'AI scores the lead on fit and intent based on the data captured at signup.',
+            'Zapier Paths route the lead down a High / Standard / Low-priority branch.',
+            'A Sub-Zap runs per lead to create staggered follow-up tasks (Day 1, Day 3, Day 7) so nothing is forgotten.'
+          ],
+          featureBullets: [
+            'AI lead scoring runs automatically on every new contact.',
+            'Branching logic treats high-value leads differently from low-priority ones.',
+            'Staggered, automatic follow-up task creation — no manual reminders.',
+            'Fully contained in HubSpot + Zapier, no extra tools for the sales team to learn.'
+          ],
+          impactIntro: 'The system changes how fast — and how consistently — leads get worked:',
+          impactBullets: [
+            {bold: 'Faster response on hot leads.', text: 'High-priority leads get flagged and routed the moment they arrive.'},
+            {bold: 'Nothing falls through.', text: 'Staggered follow-ups are created automatically instead of relying on memory.'},
+            {bold: 'Reps spend less time triaging.', text: 'The system tells them who to call first.'}
+          ],
+          applyBullets: [
+            'Stop losing hot leads in a flat, unprioritized list.',
+            'Give your sales team a follow-up cadence that runs itself.',
+            'Scale lead volume without scaling admin work.'
+          ],
+          stacks: ['Zapier', 'HubSpot', 'AI Scoring', 'Paths', 'Sub-Zap'],
+          video: 'https://youtu.be/fD2cquX7l-o'
+        },
+        sys03: {
+          tag: 'Make',
+          title: 'Lead Intake Automation',
+          images: ['make_lead_intake_automation.png'],
+          problem: 'Inbound leads came in through a webhook with no validation or deduplication — duplicate submissions and missing fields created messy records and wasted the sales team\'s time chasing bad data.',
+          goal: 'Validate every lead on the way in, prevent duplicates, and route each one to the right budget tier with a personalized AI-drafted follow-up ready to go.',
+          solutionIntro: 'A Make scenario validates incoming webhook data, deduplicates against a Data Store by normalized email, scores and drafts a personalized email with OpenAI, then routes the lead by budget into the right CRM and notification path.',
+          solutionBullets: [
+            'Webhook receives the lead; a router checks for missing required parameters first.',
+            'Data Store lookup on a normalized (lowercased, trimmed) email catches duplicates before they\'re processed.',
+            'OpenAI scores the lead 1–10 and drafts a personalized outreach email.',
+            'Budget-based routing sends High, Standard, and Follow-up leads down separate paths — high-budget leads also going to HubSpot, Airtable, and a Slack alert.',
+            'All routes merge back into a single success response to the webhook.'
+          ],
+          featureBullets: [
+            'Deduplication by normalized email before any processing happens.',
+            'AI lead scoring and personalized email drafting built in.',
+            'Budget-tiered routing with different CRM and notification paths per tier.',
+            'Gmail drafts (not sends) so a human reviews before anything goes out.'
+          ],
+          impactIntro: 'The rebuild focused on reliability rather than just features:',
+          impactBullets: [
+            {bold: 'Cleaner CRM data.', text: 'Duplicate and malformed leads never make it into the system.'},
+            {bold: 'Faster, personalized outreach.', text: 'Every lead gets an AI-drafted email tailored to their submission.'},
+            {bold: 'Sales sees priority instantly.', text: 'High-budget leads are flagged and routed to the team automatically.'}
+          ],
+          applyBullets: [
+            'Stop manually checking for duplicate leads — the system catches them first.',
+            'Get every lead a same-minute personalized response draft, ready for a human to send.',
+            'Route your highest-value leads to the right people automatically.'
+          ],
+          stacks: ['Make', 'Webhook', 'Data Store', 'OpenAI', 'Router'],
+          video: 'https://www.loom.com/share/561d31b21da24dce8aa7646376933867'
+        },
+        sys04: {
+          tag: 'Make',
+          title: 'Notion-to-Client Reporting',
+          images: ['make_notion_to_client.png', 'make_notion_to_client_summary_report.png'],
+          problem: 'Project status lived inside Notion, but clients wanted a simple weekly summary — someone had to manually count what was Done, In Progress, and Not Started, then write and send an email every week.',
+          goal: 'Automatically pull live project status out of Notion every week and deliver a clean summary email without anyone touching a spreadsheet.',
+          solutionIntro: 'A two-scenario Make system resets tracking counters, fetches project data from Notion, sorts it by status, and emails a formatted summary 30 minutes later.',
+          solutionBullets: [
+            'Scenario 1 runs every Monday at 9:00 AM: resets counters, pulls all Notion project records via the API, and routes each one by status into its own Google Sheet.',
+            'Each route increments a running counter as records are processed.',
+            'Scenario 2 runs 30 minutes later, reads the final counts, and sends a Gmail summary (Done / In Progress / Not Started) to the client.',
+            'Split into two scenarios because Make can\'t merge routes back together after a router splits them.'
+          ],
+          featureBullets: [
+            'Fully automated weekly status pull straight from the live Notion workspace.',
+            'Status-based routing keeps Done, In Progress, and Not Started counts separate and accurate.',
+            'Delivered as a clean summary email — no spreadsheet link the client has to open.'
+          ],
+          impactIntro: 'What used to be a recurring manual task now runs unattended:',
+          impactBullets: [
+            {bold: 'Zero manual reporting time.', text: 'A weekly manual task now runs on its own.'},
+            {bold: 'Always current.', text: 'The report reflects whatever is actually in Notion that morning, not a stale export.'},
+            {bold: 'Professional, consistent delivery.', text: 'Clients get the same clean format every week.'}
+          ],
+          applyBullets: [
+            'Turn any live database (Notion, Airtable, a CRM) into a recurring client report with zero manual work.',
+            'Give clients visibility without giving them raw workspace access.',
+            'Free up the hour a week you\'re currently spending copying status into an email.'
+          ],
+          stacks: ['Make', 'Notion API', 'Google Sheets', 'Gmail', 'Scheduler'],
+          video: 'https://www.loom.com/share/d181d096e0d94013ac24fcb68f9c6822'
+        },
+        sys05: {
+          tag: 'Make',
+          title: 'AI Support Triage System',
+          images: ['make_ai_triage_system.png'],
+          problem: 'Every support ticket landed in one flat queue regardless of urgency or type — the team had to read each one just to figure out where it belonged before they could even start working it.',
+          goal: 'Automatically classify and route every incoming ticket by type, alert the right Slack channel, and send an acknowledgment email on the tickets that need one.',
+          solutionIntro: 'A Make scenario classifies each webhook-submitted ticket with OpenAI, logs it to Airtable, and routes it to the matching Slack channel and email response.',
+          solutionBullets: [
+            'Webhook receives the ticket; a router checks required parameters first.',
+            'OpenAI classifies it into Complaint, Question, Feature Request, or Unknown — with a prompt that forces a single category, no explanation.',
+            'A 4-way router sends each category to its own Slack channel and logs it to Airtable.',
+            'Complaints and Questions also get an AI-drafted acknowledgment email; Feature Requests and Unknowns don\'t, since they don\'t need an immediate reply.'
+          ],
+          featureBullets: [
+            'Automatic ticket classification with a locked-down, single-word AI output.',
+            'Channel-specific Slack routing so the right team sees the right tickets.',
+            'Selective auto-acknowledgment — only sent where it\'s actually useful.',
+            'Full Airtable log of every ticket for reporting later.'
+          ],
+          impactIntro: 'Tickets get sorted and acknowledged before a human even opens the queue:',
+          impactBullets: [
+            {bold: 'Faster triage.', text: 'Tickets land in the right place instantly instead of sitting in one queue.'},
+            {bold: 'Nothing goes unacknowledged.', text: 'Complaints and questions get an instant reply while the team catches up.'},
+            {bold: 'Clear visibility.', text: 'Every ticket is logged and categorized in Airtable automatically.'}
+          ],
+          applyBullets: [
+            'Stop losing urgent tickets in a flat, unsorted inbox.',
+            'Get the right team alerted in the right Slack channel automatically.',
+            'Keep a searchable log of every ticket without extra data entry.'
+          ],
+          stacks: ['Make', 'Webhook', 'OpenAI', 'Airtable', 'Slack'],
+          video: 'https://www.loom.com/share/32a93a0ba88b4dd89c5505d804668202'
+        },
+        sys06: {
+          tag: 'n8n',
+          title: 'AI Jobs Scraper + Resume Optimizer',
+          images: ['n8n_ai_job_resume_opt.png', 'n8n_ai_job_resume_opt_p1.png', 'n8n_ai_job_resume_opt_p2.png'],
+          problem: 'Applying to multiple jobs meant manually rewriting a resume and cover message for each one — a slow, repetitive process that\'s easy to fall behind on when new listings show up daily.',
+          goal: 'Turn a single Slack message into a batch of ready-to-send, tailored applications — resume content and proposal or email draft included — with zero manual writing.',
+          solutionIntro: 'A Slack-triggered n8n workflow validates the search query with AI, pulls live listings from a jobs API, then loops through each result generating tailored application content.',
+          solutionBullets: [
+            'A Slack message with a search query triggers the workflow; AI validates the query before anything runs.',
+            'The workflow pulls live job listings from a jobs API matching that query.',
+            'It loops through each listing, and an AI Agent with a structured output schema generates ATS-optimized resume content plus a tailored Upwork proposal or cold email.',
+            'Every result is filed automatically: resume copy updates a Google Doc, and the proposal/email draft goes to Google Drive, Gmail, and Slack.'
+          ],
+          featureBullets: [
+            'AI query validation before any API calls run, avoiding wasted requests on bad input.',
+            'Loops through multiple job listings in a single run.',
+            'Structured AI output keeps resume and proposal content consistently formatted.',
+            'Everything filed automatically — no copy-pasting between tools.'
+          ],
+          impactIntro: 'One Slack message now does what used to take an hour per job:',
+          impactBullets: [
+            {bold: 'Massive time savings.', text: 'What used to take an hour per job now runs unattended per Slack message.'},
+            {bold: 'More applications, same effort.', text: 'Tailoring content per listing no longer bottlenecks how many jobs get applied to.'},
+            {bold: 'Consistent quality.', text: 'Every resume and proposal follows the same optimized structure.'}
+          ],
+          applyBullets: [
+            'Any workflow that means "customize this document per record" can follow the same loop-and-generate pattern.',
+            'Trigger complex multi-step work from a single Slack message your team already uses.',
+            'Keep a paper trail — every output is filed automatically, nothing lives only in a chat thread.'
+          ],
+          stacks: ['n8n', 'Slack', 'Jobs API', 'AI Agent', 'Google Docs', 'Gmail'],
+          video: 'https://www.loom.com/share/your-loom-link-06'
+        },
+        sys07: {
+          tag: 'n8n',
+          title: 'ASMR Video Creator',
+          images: ['n8n_asmr_video_creator.png', 'n8n_asmr_video_creator_p1.png', 'n8n_asmr_video_creator_p2.png'],
+          problem: 'Producing regular short-form video content for social channels took real time — coming up with a fresh concept, generating the video, and publishing it to multiple platforms every single time.',
+          goal: 'Fully automate the content pipeline — one scheduled trigger should generate a new, unique video and publish it to two platforms with no manual steps.',
+          solutionIntro: 'A scheduled n8n workflow generates a new video concept while checking a memory store to avoid repeats, renders it through an authenticated Vertex AI pipeline using Google\'s Veo model, then publishes the finished file to Facebook and YouTube automatically.',
+          solutionBullets: [
+            'A schedule trigger kicks off the run; the workflow reads the last-used concept from a Data Table so it never repeats itself.',
+            'An AI Agent generates a new concept plus the video prompt, title, and caption, then writes it back to the Data Table for next time.',
+            'The workflow signs a JWT and exchanges it for a Google Cloud access token, then calls Vertex AI\'s Veo model to render the video asynchronously.',
+            'A poll loop waits for the render to finish, runs compliance and quality validation gates, then converts the returned file and publishes it in parallel to Facebook and YouTube.'
+          ],
+          featureBullets: [
+            'Built-in repeat prevention via a lightweight read-before-write memory pattern.',
+            'Fully automated server-to-server Google Cloud authentication — no OAuth popup.',
+            'Async render handling with a proper poll-until-done loop.',
+            'Validation gates before anything gets published, and parallel multi-platform publishing from one asset.'
+          ],
+          impactIntro: 'The whole content pipeline now runs with nobody touching it:',
+          impactBullets: [
+            {bold: 'Zero manual production time.', text: 'One scheduled trigger produces a unique, ready-to-watch video with no one touching it.'},
+            {bold: 'Consistent output.', text: 'New content goes out on schedule, every time, without depending on someone remembering to make it.'},
+            {bold: 'Multi-platform reach for free.', text: 'The same render publishes to two platforms in parallel.'}
+          ],
+          applyBullets: [
+            'Any recurring content task (social posts, reports, digests) can follow this generate-validate-publish pattern.',
+            'Removes the "did someone actually do this today" risk from your content calendar.',
+            'Scales to more platforms by adding another publish branch, not more manual work.'
+          ],
+          stacks: ['n8n', 'Vertex AI (Veo)', 'Data Table', 'Facebook Graph API', 'YouTube API'],
+          video: 'https://www.loom.com/share/your-loom-link-07'
+        }
+      };
+
+      var overlay = document.getElementById('modalOverlay');
+      var closeBtn = document.getElementById('modalClose');
+      var tagEl = document.getElementById('modalTag');
+      var titleEl = document.getElementById('modalTitle');
+      var galleryEl = document.getElementById('modalGallery');
+      var problemEl = document.getElementById('modalProblem');
+      var goalEl = document.getElementById('modalGoal');
+      var solutionIntroEl = document.getElementById('modalSolutionIntro');
+      var solutionListEl = document.getElementById('modalSolutionList');
+      var featureListEl = document.getElementById('modalFeatureList');
+      var impactIntroEl = document.getElementById('modalImpactIntro');
+      var impactListEl = document.getElementById('modalImpactList');
+      var applyListEl = document.getElementById('modalApplyList');
+      var stacksEl = document.getElementById('modalStacks');
+      var videoEl = document.getElementById('modalVideo');
+
+      function fillList(ul, items) {
+        ul.innerHTML = '';
+        (items || []).forEach(function (item) {
+          var li = document.createElement('li');
+          if (item && typeof item === 'object') {
+            li.innerHTML = '<strong>' + item.bold + '</strong> ' + item.text;
+          } else {
+            li.textContent = item;
+          }
+          ul.appendChild(li);
+        });
+      }
+
+      function fillStacks(container, stacks) {
+        container.innerHTML = '';
+        (stacks || []).forEach(function (s) {
+          var span = document.createElement('span');
+          span.className = 'modal-stack-tag';
+          span.textContent = s;
+          container.appendChild(span);
+        });
+      }
+
+      function fillGallery(container, images) {
+        container.innerHTML = '';
+        (images || []).forEach(function (name) {
+          var box = document.createElement('div');
+          box.className = 'modal-shot';
+          var img = document.createElement('img');
+          img.alt = '';
+          img.style.display = 'none';
+          var fallback = document.createElement('div');
+          fallback.className = 'shot-fallback';
+          fallback.innerHTML = 'ADD SCREENSHOT<br><span>' + name + '</span>';
+          img.onerror = function () {img.style.display = 'none'; fallback.style.display = 'flex';};
+          img.onload = function () {img.style.display = 'block'; fallback.style.display = 'none';};
+          img.src = name;
+          box.appendChild(img);
+          box.appendChild(fallback);
+          container.appendChild(box);
+        });
+      }
+
+      function openCase(key) {
+        var c = cases[key];
+        if (!c) return;
+        tagEl.textContent = c.tag;
+        titleEl.textContent = c.title;
+        problemEl.textContent = c.problem;
+        goalEl.textContent = c.goal;
+        solutionIntroEl.textContent = c.solutionIntro;
+        fillList(solutionListEl, c.solutionBullets);
+        fillList(featureListEl, c.featureBullets);
+        impactIntroEl.textContent = c.impactIntro;
+        fillList(impactListEl, c.impactBullets);
+        fillList(applyListEl, c.applyBullets);
+        fillStacks(stacksEl, c.stacks);
+        fillGallery(galleryEl, c.images);
+        videoEl.href = c.video;
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+
+      function closeCase() {
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.case-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {openCase(btn.getAttribute('data-case'));});
+      });
+      closeBtn.addEventListener('click', closeCase);
+      overlay.addEventListener('click', function (e) {if (e.target === overlay) closeCase();});
+      document.addEventListener('keydown', function (e) {if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeCase();});
+    })();
+  </script>
+
+</body>
+
+</html>
