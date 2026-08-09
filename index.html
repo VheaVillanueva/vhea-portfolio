@@ -125,7 +125,7 @@
 
     .eyebrow {
       font-family: var(--font-mono);
-      font-size: 12.5px;
+      font-size: 14.5px;
       letter-spacing: .14em;
       text-transform: uppercase;
       color: var(--cyan);
@@ -255,7 +255,7 @@
     h1.name {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: clamp(40px, 6vw, 68px);
+      font-size: clamp(42px, 6vw, 70px);
       line-height: 1.03;
       letter-spacing: -0.01em;
       margin: 18px 0 10px;
@@ -264,7 +264,7 @@
 
     .role-line {
       font-family: var(--font-mono);
-      font-size: clamp(15px, 2vw, 19px);
+      font-size: clamp(17px, 2vw, 21px);
       color: var(--cyan-bright);
       margin-bottom: 22px;
     }
@@ -272,7 +272,7 @@
     .hero-copy {
       max-width: 52ch;
       color: var(--paper-dim);
-      font-size: 16.5px;
+      font-size: 18.5px;
     }
 
     .hero-cta {
@@ -284,7 +284,7 @@
 
     .btn {
       font-family: var(--font-mono);
-      font-size: 13.5px;
+      font-size: 15.5px;
       letter-spacing: .03em;
       padding: 13px 22px;
       border: 1px solid var(--line);
@@ -356,7 +356,7 @@
       background: var(--charcoal-deep);
       box-shadow: 0 0 0 8px rgba(127, 184, 217, .035), 0 0 58px rgba(127, 184, 217, .18);
       position: relative;
-      transition: transform .35s cubic-bezier(.16,.8,.3,1), box-shadow .35s ease, border-color .35s ease;
+      transition: transform .35s cubic-bezier(.16, .8, .3, 1), box-shadow .35s ease, border-color .35s ease;
     }
 
     .hero-photo-frame:hover .hero-photo-inner {
@@ -386,7 +386,7 @@
       align-items: center;
       justify-content: center;
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 14px;
       letter-spacing: .09em;
       color: var(--paper);
       line-height: 1.8;
@@ -399,13 +399,13 @@
 
     .hero-photo-fallback span {
       color: var(--cyan);
-      font-size: 10px;
+      font-size: 12px;
     }
 
     .hero-photo-caption {
       font-family: var(--font-mono);
       color: var(--paper);
-      font-size: 10px;
+      font-size: 12px;
       letter-spacing: .12em;
       text-transform: uppercase;
     }
@@ -438,7 +438,7 @@
     .tech-group h3 {
       font-family: var(--font-mono);
       color: var(--cyan-bright);
-      font-size: 12px;
+      font-size: 14px;
       text-transform: uppercase;
       letter-spacing: .1em;
       margin-bottom: 18px;
@@ -459,7 +459,7 @@
       border: 1px solid #2b3138;
       background: #17181b;
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 14px;
       color: var(--paper);
       transition: .2s ease;
     }
@@ -492,7 +492,7 @@
       border: 1px solid var(--cyan);
       border-radius: 50%;
       color: var(--cyan-bright);
-      font-size: 10px;
+      font-size: 12px;
     }
 
     /* ---------- MARQUEE ---------- */
@@ -512,9 +512,8 @@
       animation: marquee 30s linear infinite;
     }
 
-    .marquee:hover .marquee-track {
-      animation-play-state: paused;
-    }
+    /* FIX: removed pause-on-hover — marquee spans full page width, so any mouse pass-through
+       (even just scrolling) paused it, which is what looked like a broken loop/gap */
 
     .marquee-group {
       display: inline-flex;
@@ -525,7 +524,7 @@
 
     .marquee-pill {
       font-family: var(--font-mono);
-      font-size: 12.5px;
+      font-size: 14.5px;
       letter-spacing: .04em;
       text-transform: uppercase;
       color: var(--paper);
@@ -535,12 +534,12 @@
       padding: 7px 18px 7px 7px;
       border-radius: 999px;
       border: 1px solid var(--dot, var(--cyan));
-      background: rgba(255,255,255,0.02);
+      background: rgba(255, 255, 255, 0.02);
       box-shadow: 0 0 16px -5px var(--dot, var(--cyan));
       transition: transform .2s ease, box-shadow .2s ease;
     }
 
-    .marquee:hover .marquee-pill:hover {
+    .marquee-pill:hover {
       transform: translateY(-2px);
       box-shadow: 0 0 22px -4px var(--dot, var(--cyan));
     }
@@ -564,7 +563,7 @@
 
     .marquee-icon-wrap .marquee-glyph {
       color: #fff;
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 700;
       font-family: var(--font-mono);
     }
@@ -598,20 +597,20 @@
       text-align: center;
       border: 1px solid var(--line);
       border-radius: 14px;
-      background: rgba(127,184,217,0.03);
+      background: rgba(127, 184, 217, 0.03);
       transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease, background .25s ease;
     }
 
     .spec-cell:hover {
       transform: translateY(-4px);
       border-color: var(--cyan);
-      background: rgba(127,184,217,0.07);
-      box-shadow: 0 20px 46px -24px rgba(127,184,217,.45), 0 0 0 1px var(--cyan);
+      background: rgba(127, 184, 217, 0.07);
+      box-shadow: 0 20px 46px -24px rgba(127, 184, 217, .45), 0 0 0 1px var(--cyan);
     }
 
     .spec-label {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13px;
       letter-spacing: .1em;
       text-transform: uppercase;
       color: var(--cyan);
@@ -621,12 +620,12 @@
     .spec-value {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: 24px;
+      font-size: 26px;
       color: var(--paper);
     }
 
     .spec-sub {
-      font-size: 12.5px;
+      font-size: 14.5px;
       color: var(--paper-dim);
       margin-top: 4px;
     }
@@ -649,7 +648,7 @@
     .section-title {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: clamp(26px, 3.4vw, 36px);
+      font-size: clamp(28px, 3.4vw, 38px);
       margin-top: 14px;
       color: var(--paper);
     }
@@ -657,7 +656,7 @@
     .section-copy {
       color: var(--paper-dim);
       margin-top: 12px;
-      font-size: 15.5px;
+      font-size: 17.5px;
     }
 
     /* ---------- ABOUT ---------- */
@@ -670,7 +669,7 @@
     .about-copy p {
       color: var(--paper-dim);
       margin-bottom: 16px;
-      font-size: 15.5px;
+      font-size: 17.5px;
     }
 
     .about-copy strong {
@@ -688,6 +687,9 @@
 
     .timeline-item {
       position: relative;
+      display: block;
+      text-decoration: none;
+      color: inherit;
       padding: 10px 14px 10px 4px;
       border-radius: 2px;
       transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
@@ -724,7 +726,7 @@
 
     .timeline-year {
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 14px;
       color: var(--cyan);
       letter-spacing: .06em;
     }
@@ -732,14 +734,14 @@
     .timeline-title {
       font-family: var(--font-display);
       font-weight: 600;
-      font-size: 15.5px;
+      font-size: 17.5px;
       color: var(--paper);
       margin-top: 3px;
       transition: color .2s ease;
     }
 
     .timeline-desc {
-      font-size: 13.5px;
+      font-size: 15.5px;
       color: var(--paper-dim);
       margin-top: 2px;
     }
@@ -777,7 +779,7 @@
 
     .panel-index {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13px;
       color: var(--cyan);
       letter-spacing: .08em;
     }
@@ -785,14 +787,14 @@
     .panel-title {
       font-family: var(--font-display);
       font-weight: 600;
-      font-size: 19px;
+      font-size: 21px;
       color: var(--paper);
       margin-top: 4px;
     }
 
     .panel-stack {
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      font-size: 12.5px;
       color: var(--charcoal-deep);
       background: var(--cyan);
       padding: 3px 8px;
@@ -807,7 +809,7 @@
     }
 
     .panel-desc {
-      font-size: 14px;
+      font-size: 16px;
       color: var(--paper-dim);
     }
 
@@ -820,7 +822,7 @@
 
     .panel-result {
       font-family: var(--font-mono);
-      font-size: 12.5px;
+      font-size: 14.5px;
       color: var(--amber);
       border-top: 1px dashed var(--line);
       padding-top: 12px;
@@ -828,7 +830,7 @@
 
     .case-btn {
       font-family: var(--font-mono);
-      font-size: 12.5px;
+      font-size: 14.5px;
       color: var(--cyan-bright);
       background: none;
       border: 1px solid var(--line);
@@ -858,7 +860,7 @@
 
     .filter-btn {
       font-family: var(--font-mono);
-      font-size: 12.5px;
+      font-size: 14.5px;
       letter-spacing: .05em;
       text-transform: uppercase;
       padding: 9px 20px;
@@ -910,22 +912,21 @@
     .contact-panel:hover {
       border-color: var(--cyan);
       transform: translateY(-5px);
-      background: rgba(127,184,217,0.025);
-      box-shadow: 0 0 0 1px var(--cyan), 0 26px 64px -26px rgba(127,184,217,.4), 0 0 50px -14px rgba(232,163,61,.16);
+      background: rgba(127, 184, 217, 0.025);
+      box-shadow: 0 0 0 1px var(--cyan), 0 26px 64px -26px rgba(127, 184, 217, .4), 0 0 50px -14px rgba(232, 163, 61, .16);
     }
 
     .contact-title {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: clamp(24px, 3vw, 32px);
+      font-size: clamp(26px, 3vw, 34px);
       color: var(--paper);
     }
 
     .contact-copy {
       color: var(--paper-dim);
       margin-top: 12px;
-      font-size: 15px;
-      max-width: 46ch;
+      font-size: 17px;
     }
 
     /* FIX: profile links now boxed rows with a status dot + arrow, not plain underlined text */
@@ -938,7 +939,7 @@
 
     .contact-link {
       font-family: var(--font-mono);
-      font-size: 13.5px;
+      font-size: 15.5px;
       color: var(--paper);
       text-decoration: none;
       display: flex;
@@ -946,7 +947,7 @@
       justify-content: space-between;
       gap: 10px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.015);
+      background: rgba(255, 255, 255, .015);
       padding: 12px 16px;
       transition: border-color .2s ease, color .2s ease, transform .2s ease, background .2s ease;
     }
@@ -968,7 +969,7 @@
 
     .contact-link .link-arrow {
       color: var(--paper-dim);
-      font-size: 12px;
+      font-size: 14px;
       transition: transform .2s ease, color .2s ease;
     }
 
@@ -976,7 +977,7 @@
       border-color: var(--cyan);
       color: var(--cyan-bright);
       transform: translateX(4px);
-      background: rgba(127,184,217,0.05);
+      background: rgba(127, 184, 217, 0.05);
     }
 
     .contact-link:hover .link-arrow {
@@ -993,7 +994,7 @@
 
     .contact-next-label {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13px;
       letter-spacing: .1em;
       text-transform: uppercase;
       color: var(--cyan);
@@ -1009,7 +1010,7 @@
 
     .contact-next-num {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13px;
       color: var(--charcoal-deep);
       background: var(--cyan);
       width: 20px;
@@ -1023,7 +1024,7 @@
     }
 
     .contact-next-text {
-      font-size: 13.5px;
+      font-size: 15.5px;
       color: var(--paper-dim);
       line-height: 1.5;
     }
@@ -1043,18 +1044,18 @@
 
     .faq-item {
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.015);
+      background: rgba(255, 255, 255, .015);
       transition: border-color .2s ease, background .2s ease;
     }
 
     .faq-item:hover {
       border-color: var(--cyan);
-      background: rgba(127,184,217,.03);
+      background: rgba(127, 184, 217, .03);
     }
 
     .faq-item[open] {
       border-color: var(--cyan);
-      background: rgba(127,184,217,.04);
+      background: rgba(127, 184, 217, .04);
     }
 
     .faq-question {
@@ -1067,7 +1068,7 @@
       gap: 16px;
       font-family: var(--font-display);
       font-weight: 600;
-      font-size: 15.5px;
+      font-size: 17.5px;
       color: var(--paper);
     }
 
@@ -1078,7 +1079,7 @@
     .faq-question::after {
       content: '+';
       font-family: var(--font-mono);
-      font-size: 18px;
+      font-size: 20px;
       color: var(--cyan);
       flex-shrink: 0;
       transition: transform .2s ease;
@@ -1090,7 +1091,7 @@
 
     .faq-answer {
       padding: 0 24px 22px;
-      font-size: 14.5px;
+      font-size: 16.5px;
       color: var(--paper-dim);
       line-height: 1.65;
       text-align: justify;
@@ -1114,7 +1115,7 @@
 
     .calendly-fallback {
       font-family: var(--font-mono);
-      font-size: 11.5px;
+      font-size: 13.5px;
       color: var(--paper-dim);
     }
 
@@ -1125,7 +1126,7 @@
     footer {
       padding: 28px 0 40px;
       font-family: var(--font-mono);
-      font-size: 11.5px;
+      font-size: 13.5px;
       color: var(--paper-dim);
       display: flex;
       justify-content: space-between;
@@ -1179,7 +1180,7 @@
       width: 32px;
       height: 32px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 16px;
       transition: border-color .2s ease, color .2s ease;
       z-index: 2;
     }
@@ -1191,7 +1192,7 @@
 
     .modal-tag {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13px;
       color: var(--charcoal-deep);
       background: var(--cyan);
       display: inline-block;
@@ -1202,7 +1203,7 @@
     .modal-title {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: 24px;
+      font-size: 26px;
       margin: 14px 0 18px;
       color: var(--paper);
       padding-right: 30px;
@@ -1252,7 +1253,7 @@
       flex-direction: column;
       gap: 4px;
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13px;
       color: var(--paper-dim);
       text-align: center;
       letter-spacing: .05em;
@@ -1269,7 +1270,7 @@
       background: rgba(10, 10, 12, .75);
       border: 1px solid var(--line);
       color: var(--paper);
-      font-size: 16px;
+      font-size: 18px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -1325,7 +1326,7 @@
       bottom: 10px;
       right: 10px;
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      font-size: 12.5px;
       color: var(--paper);
       background: rgba(10, 10, 12, .7);
       border: 1px solid var(--line);
@@ -1377,7 +1378,7 @@
       right: 20px;
       width: 38px;
       height: 38px;
-      font-size: 16px;
+      font-size: 18px;
     }
 
     .lightbox-nav {
@@ -1386,7 +1387,7 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      font-size: 19px;
+      font-size: 21px;
     }
 
     .lightbox-prev {
@@ -1409,7 +1410,7 @@
 
     .modal-label {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13px;
       letter-spacing: .08em;
       text-transform: uppercase;
       color: var(--cyan);
@@ -1417,7 +1418,7 @@
     }
 
     .modal-section p {
-      font-size: 14.5px;
+      font-size: 16.5px;
       color: var(--paper-dim);
       margin-bottom: 10px;
     }
@@ -1430,7 +1431,7 @@
     }
 
     .modal-list li {
-      font-size: 14.5px;
+      font-size: 16.5px;
       color: var(--paper-dim);
       padding-left: 16px;
       position: relative;
@@ -1457,7 +1458,7 @@
 
     .modal-stack-tag {
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      font-size: 12.5px;
       letter-spacing: .04em;
       color: var(--cyan-bright);
       border: 1px solid var(--line);
@@ -1466,7 +1467,7 @@
 
     .modal-video {
       font-family: var(--font-mono);
-      font-size: 13.5px;
+      font-size: 15.5px;
       color: var(--amber);
       text-decoration: none;
       border: 1px solid var(--line);
@@ -1637,26 +1638,46 @@
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track" id="marqueeTrack">
       <div class="marquee-group">
-        <span class="marquee-pill" style="--dot:#EA4B71"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/n8n.svg" alt=""></span>n8n</span>
-        <span class="marquee-pill" style="--dot:#A21EFF"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/make.svg" alt=""></span>Make.com</span>
-        <span class="marquee-pill" style="--dot:#FF4A00"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/zapier.svg" alt=""></span>Zapier</span>
-        <span class="marquee-pill" style="--dot:#10A37F"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openai.svg" alt=""></span>OpenAI API</span>
-        <span class="marquee-pill" style="--dot:#7FB8D9"><span class="marquee-icon-wrap"><span class="marquee-glyph">AI</span></span>AI Chat Agents</span>
-        <span class="marquee-pill" style="--dot:#EDEDED"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/notion.svg" alt="" style="filter:none;"></span>Notion</span>
-        <span class="marquee-pill" style="--dot:#FF7A59"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/hubspot.svg" alt=""></span>HubSpot</span>
-        <span class="marquee-pill" style="--dot:#FCB400"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/airtable.svg" alt=""></span>Airtable</span>
-        <span class="marquee-pill" style="--dot:#4285F4"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/google.svg" alt=""></span>Google Workspace</span>
+        <span class="marquee-pill" style="--dot:#EA4B71"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/n8n.svg" alt=""></span>n8n</span>
+        <span class="marquee-pill" style="--dot:#A21EFF"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/make.svg" alt=""></span>Make.com</span>
+        <span class="marquee-pill" style="--dot:#FF4A00"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/zapier.svg" alt=""></span>Zapier</span>
+        <span class="marquee-pill" style="--dot:#10A37F"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openai.svg" alt=""></span>OpenAI API</span>
+        <span class="marquee-pill" style="--dot:#7FB8D9"><span class="marquee-icon-wrap"><span
+              class="marquee-glyph">AI</span></span>AI Chat Agents</span>
+        <span class="marquee-pill" style="--dot:#EDEDED"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/notion.svg" alt=""
+              style="filter:none;"></span>Notion</span>
+        <span class="marquee-pill" style="--dot:#FF7A59"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/hubspot.svg" alt=""></span>HubSpot</span>
+        <span class="marquee-pill" style="--dot:#FCB400"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/airtable.svg" alt=""></span>Airtable</span>
+        <span class="marquee-pill" style="--dot:#4285F4"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/google.svg" alt=""></span>Google Workspace</span>
       </div>
       <div class="marquee-group">
-        <span class="marquee-pill" style="--dot:#EA4B71"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/n8n.svg" alt=""></span>n8n</span>
-        <span class="marquee-pill" style="--dot:#A21EFF"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/make.svg" alt=""></span>Make.com</span>
-        <span class="marquee-pill" style="--dot:#FF4A00"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/zapier.svg" alt=""></span>Zapier</span>
-        <span class="marquee-pill" style="--dot:#10A37F"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openai.svg" alt=""></span>OpenAI API</span>
-        <span class="marquee-pill" style="--dot:#7FB8D9"><span class="marquee-icon-wrap"><span class="marquee-glyph">AI</span></span>AI Chat Agents</span>
-        <span class="marquee-pill" style="--dot:#EDEDED"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/notion.svg" alt="" style="filter:none;"></span>Notion</span>
-        <span class="marquee-pill" style="--dot:#FF7A59"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/hubspot.svg" alt=""></span>HubSpot</span>
-        <span class="marquee-pill" style="--dot:#FCB400"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/airtable.svg" alt=""></span>Airtable</span>
-        <span class="marquee-pill" style="--dot:#4285F4"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/google.svg" alt=""></span>Google Workspace</span>
+        <span class="marquee-pill" style="--dot:#EA4B71"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/n8n.svg" alt=""></span>n8n</span>
+        <span class="marquee-pill" style="--dot:#A21EFF"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/make.svg" alt=""></span>Make.com</span>
+        <span class="marquee-pill" style="--dot:#FF4A00"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/zapier.svg" alt=""></span>Zapier</span>
+        <span class="marquee-pill" style="--dot:#10A37F"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openai.svg" alt=""></span>OpenAI API</span>
+        <span class="marquee-pill" style="--dot:#7FB8D9"><span class="marquee-icon-wrap"><span
+              class="marquee-glyph">AI</span></span>AI Chat Agents</span>
+        <span class="marquee-pill" style="--dot:#EDEDED"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/notion.svg" alt=""
+              style="filter:none;"></span>Notion</span>
+        <span class="marquee-pill" style="--dot:#FF7A59"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/hubspot.svg" alt=""></span>HubSpot</span>
+        <span class="marquee-pill" style="--dot:#FCB400"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/airtable.svg" alt=""></span>Airtable</span>
+        <span class="marquee-pill" style="--dot:#4285F4"><span class="marquee-icon-wrap"><img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/google.svg" alt=""></span>Google Workspace</span>
       </div>
     </div>
   </div>
@@ -1718,16 +1739,19 @@
           <div class="timeline-title">Senior Software Engineer</div>
           <div class="timeline-desc">Amdocs PH · Smart · SLI — Java, MySQL, Oracle, AWS</div>
         </div>
-        <div class="timeline-item">
+        <a class="timeline-item" href="https://www.credly.com/badges/0cb79730-6eee-4682-89e8-944902f99d1e/public_url"
+          target="_blank" rel="noopener">
           <div class="timeline-year">CERT</div>
-          <div class="timeline-title">AWS Cloud Practitioner</div>
-          <div class="timeline-desc">Cloud infrastructure fundamentals</div>
-        </div>
-        <div class="timeline-item">
+          <div class="timeline-title">AWS Cloud Practitioner <span style="color:var(--cyan);font-size:13px;">↗</span>
+          </div>
+          <div class="timeline-desc">Cloud infrastructure fundamentals — view credential</div>
+        </a>
+        <a class="timeline-item" href="https://www.credly.com/badges/e0ee4f80-17b4-408f-b7a4-f4761cb9d4ac/public_url"
+          target="_blank" rel="noopener">
           <div class="timeline-year">CERT</div>
-          <div class="timeline-title">AWS AI Practitioner</div>
-          <div class="timeline-desc">Applied AI/ML foundations</div>
-        </div>
+          <div class="timeline-title">AWS AI Practitioner <span style="color:var(--cyan);font-size:13px;">↗</span></div>
+          <div class="timeline-desc">Applied AI/ML foundations — view credential</div>
+        </a>
         <div class="timeline-item">
           <div class="timeline-year">NOW</div>
           <div class="timeline-title">AI & Workflow Automation Specialist</div>
@@ -1768,14 +1792,15 @@
           <svg class="node-diagram" viewBox="0 0 400 70" fill="none" xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true">
             <rect x="8" y="20" width="70" height="30" stroke="#7FB8D9" />
-            <text x="43" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8"
+            <text x="43" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="10"
               text-anchor="middle">INBOX</text>
             <path class="flow-line" d="M78 35 H150" stroke="#7FB8D9" />
             <circle class="pulse-node" cx="165" cy="35" r="15" stroke="#E8A33D" stroke-width="1.4" />
-            <text x="165" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">AI</text>
+            <text x="165" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="10"
+              text-anchor="middle">AI</text>
             <path class="flow-line" d="M180 35 H252" stroke="#7FB8D9" />
             <rect x="252" y="20" width="80" height="30" stroke="#7FB8D9" />
-            <text x="292" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">REPLY /
+            <text x="292" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">REPLY /
               ROUTE</text>
           </svg>
           <p class="panel-desc">A self-hosted n8n agent that reads incoming support requests, classifies intent, and
@@ -1797,14 +1822,15 @@
           <svg class="node-diagram" viewBox="0 0 400 70" fill="none" xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true">
             <rect x="8" y="20" width="80" height="30" stroke="#7FB8D9" />
-            <text x="48" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">NEW
+            <text x="48" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">NEW
               LEAD</text>
             <path class="flow-line" d="M88 35 H150" stroke="#7FB8D9" />
             <circle class="pulse-node" cx="165" cy="35" r="15" stroke="#E8A33D" stroke-width="1.4" />
-            <text x="165" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">AI</text>
+            <text x="165" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="10"
+              text-anchor="middle">AI</text>
             <path class="flow-line" d="M180 35 H252" stroke="#7FB8D9" />
             <rect x="252" y="20" width="80" height="30" stroke="#7FB8D9" />
-            <text x="292" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">SCORE +
+            <text x="292" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">SCORE +
               CRM</text>
           </svg>
           <p class="panel-desc">Enriches and scores inbound leads automatically, then writes structured intelligence
@@ -1826,15 +1852,15 @@
           <svg class="node-diagram" viewBox="0 0 400 70" fill="none" xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true">
             <rect x="8" y="20" width="70" height="30" stroke="#7FB8D9" />
-            <text x="43" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8"
+            <text x="43" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="10"
               text-anchor="middle">FORM</text>
             <path class="flow-line" d="M78 35 H140" stroke="#7FB8D9" />
             <rect x="140" y="20" width="70" height="30" stroke="#7FB8D9" />
-            <text x="175" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8"
+            <text x="175" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="10"
               text-anchor="middle">VALIDATE</text>
             <path class="flow-line" d="M210 35 H272" stroke="#7FB8D9" />
             <rect x="272" y="20" width="90" height="30" stroke="#7FB8D9" />
-            <text x="317" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">ASSIGN +
+            <text x="317" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">ASSIGN +
               NOTIFY</text>
           </svg>
           <p class="panel-desc">Validates, dedupes, and scores every inbound lead, then routes it by budget tier with an
@@ -1856,15 +1882,15 @@
           <svg class="node-diagram" viewBox="0 0 400 70" fill="none" xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true">
             <rect x="8" y="20" width="80" height="30" stroke="#7FB8D9" />
-            <text x="48" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">NOTION
+            <text x="48" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">NOTION
               DB</text>
             <path class="flow-line" d="M88 35 H150" stroke="#7FB8D9" />
             <rect x="150" y="20" width="70" height="30" stroke="#7FB8D9" />
-            <text x="185" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8"
+            <text x="185" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="10"
               text-anchor="middle">FORMAT</text>
             <path class="flow-line" d="M220 35 H282" stroke="#7FB8D9" />
             <rect x="282" y="20" width="80" height="30" stroke="#7FB8D9" />
-            <text x="322" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">CLIENT
+            <text x="322" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">CLIENT
               REPORT</text>
           </svg>
           <p class="panel-desc">Pulls live project data out of a client's Notion workspace and turns it into a
@@ -1886,18 +1912,19 @@
           <svg class="node-diagram" viewBox="0 0 400 70" fill="none" xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true">
             <rect x="8" y="20" width="70" height="30" stroke="#7FB8D9" />
-            <text x="43" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8"
+            <text x="43" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="10"
               text-anchor="middle">TICKET</text>
             <path class="flow-line" d="M78 35 H140" stroke="#7FB8D9" />
             <circle class="pulse-node" cx="155" cy="35" r="15" stroke="#E8A33D" stroke-width="1.4" />
-            <text x="155" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">AI</text>
+            <text x="155" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="10"
+              text-anchor="middle">AI</text>
             <path class="flow-line" d="M170 35 H232" stroke="#7FB8D9" />
             <rect x="232" y="20" width="70" height="30" stroke="#7FB8D9" />
-            <text x="267" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8"
+            <text x="267" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="10"
               text-anchor="middle">PRIORITY</text>
             <path class="flow-line" d="M302 35 H364" stroke="#7FB8D9" />
             <rect x="364" y="20" width="30" height="30" stroke="#7FB8D9" />
-            <text x="379" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">Q</text>
+            <text x="379" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="9" text-anchor="middle">Q</text>
           </svg>
           <p class="panel-desc">Classifies and prioritizes incoming support tickets by urgency and topic before they hit
             a queue.</p>
@@ -1918,14 +1945,15 @@
           <svg class="node-diagram" viewBox="0 0 400 70" fill="none" xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true">
             <rect x="8" y="20" width="90" height="30" stroke="#7FB8D9" />
-            <text x="53" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">SLACK
+            <text x="53" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">SLACK
               QUERY</text>
             <path class="flow-line" d="M98 35 H150" stroke="#7FB8D9" />
             <circle class="pulse-node" cx="165" cy="35" r="15" stroke="#E8A33D" stroke-width="1.4" />
-            <text x="165" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">AI</text>
+            <text x="165" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="10"
+              text-anchor="middle">AI</text>
             <path class="flow-line" d="M180 35 H252" stroke="#7FB8D9" />
             <rect x="252" y="20" width="140" height="30" stroke="#7FB8D9" />
-            <text x="322" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">RESUME +
+            <text x="322" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="9" text-anchor="middle">RESUME +
               PROPOSAL</text>
           </svg>
           <p class="panel-desc">Slack-triggered: validates a search query, pulls live job listings, loops through each
@@ -1947,14 +1975,15 @@
           <svg class="node-diagram" viewBox="0 0 400 70" fill="none" xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true">
             <rect x="8" y="20" width="80" height="30" stroke="#7FB8D9" />
-            <text x="48" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="8"
+            <text x="48" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="10"
               text-anchor="middle">SCHEDULE</text>
             <path class="flow-line" d="M88 35 H150" stroke="#7FB8D9" />
             <circle class="pulse-node" cx="165" cy="35" r="15" stroke="#E8A33D" stroke-width="1.4" />
-            <text x="165" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="8" text-anchor="middle">AI</text>
+            <text x="165" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="10"
+              text-anchor="middle">AI</text>
             <path class="flow-line" d="M180 35 H252" stroke="#7FB8D9" />
             <rect x="252" y="20" width="140" height="30" stroke="#7FB8D9" />
-            <text x="322" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="7" text-anchor="middle">RENDER +
+            <text x="322" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="9" text-anchor="middle">RENDER +
               PUBLISH</text>
           </svg>
           <p class="panel-desc">Generates a new video concept while checking memory to avoid repeats, renders it via
@@ -1978,27 +2007,40 @@
       <div class="faq-list">
         <details class="faq-item reveal">
           <summary class="faq-question">How is this different from hiring a general virtual assistant?</summary>
-          <div class="faq-answer">Most VAs execute tasks manually inside the tools you already have. I spent 14 years as a software engineer before moving into automation — so instead of doing the repetitive task by hand every time, I build the system that does it, with error handling and logging built in so it keeps working when you're not watching it.</div>
+          <div class="faq-answer">Most VAs execute tasks manually inside the tools you already have. I spent 14 years as
+            a software engineer before moving into automation — so instead of doing the repetitive task by hand every
+            time, I build the system that does it, with error handling and logging built in so it keeps working when
+            you're not watching it.</div>
         </details>
         <details class="faq-item reveal">
           <summary class="faq-question">What tools do you actually build with?</summary>
-          <div class="faq-answer">Mainly n8n, Make, and Zapier for the automation layer, wired to AI (OpenAI, Claude) for anything that needs judgment rather than just data-moving. On the business-systems side: HubSpot, Notion, Airtable, and Google Workspace. Full stack is listed above.</div>
+          <div class="faq-answer">Mainly n8n, Make, and Zapier for the automation layer, wired to AI (OpenAI, Claude)
+            for anything that needs judgment rather than just data-moving. On the business-systems side: HubSpot,
+            Notion, Airtable, and Google Workspace. Full stack is listed above.</div>
         </details>
         <details class="faq-item reveal">
           <summary class="faq-question">How long does a typical project take?</summary>
-          <div class="faq-answer">Depends entirely on complexity — a single-workflow automation is faster than a multi-system build with AI decision layers. Rather than guess here, I scope an exact timeline on the discovery call once I know what you're actually trying to automate.</div>
+          <div class="faq-answer">Depends entirely on complexity — a single-workflow automation is faster than a
+            multi-system build with AI decision layers. Rather than guess here, I scope an exact timeline on the
+            discovery call once I know what you're actually trying to automate.</div>
         </details>
         <details class="faq-item reveal">
           <summary class="faq-question">Do I need to know exactly what to automate before I reach out?</summary>
-          <div class="faq-answer">No. Figuring that out is part of the discovery call — a lot of the value is in identifying which manual process is actually worth automating first, not just building whatever's requested.</div>
+          <div class="faq-answer">No. Figuring that out is part of the discovery call — a lot of the value is in
+            identifying which manual process is actually worth automating first, not just building whatever's requested.
+          </div>
         </details>
         <details class="faq-item reveal">
           <summary class="faq-question">What happens after the automation is built?</summary>
-          <div class="faq-answer">You get the working system plus documentation — not just a demo that only I understand. Error handling and logging are built in from the start, so issues surface clearly instead of failing silently.</div>
+          <div class="faq-answer">You get the working system plus documentation — not just a demo that only I
+            understand. Error handling and logging are built in from the start, so issues surface clearly instead of
+            failing silently.</div>
         </details>
         <details class="faq-item reveal">
           <summary class="faq-question">Is this a one-off build, or do you offer ongoing support?</summary>
-          <div class="faq-answer">Both, depending on what fits. Some clients want a clean one-off build with full handoff; others prefer ongoing support as their systems grow or new tools get added. We figure out which makes sense on the discovery call.</div>
+          <div class="faq-answer">Both, depending on what fits. Some clients want a clean one-off build with full
+            handoff; others prefer ongoing support as their systems grow or new tools get added. We figure out which
+            makes sense on the discovery call.</div>
         </details>
       </div>
     </div>
@@ -2016,16 +2058,24 @@
             engineering attention. Book a free 30-minute call — no pitch, just a look at what's worth automating first.
           </p>
           <div class="contact-links">
-            <a class="contact-link" href="mailto:villanuevarja@gmail.com"><span class="link-label">Direct Email</span><span class="link-arrow">↗</span></a>
+            <a class="contact-link" href="mailto:villanuevarja@gmail.com"><span class="link-label">Direct
+                Email</span><span class="link-arrow">↗</span></a>
             <a class="contact-link" href="https://www.upwork.com/freelancers/~01a562295772681e01" target="_blank"
               rel="noopener"><span class="link-label">Upwork Profile</span><span class="link-arrow">↗</span></a>
-            <a class="contact-link" href="https://www.linkedin.com/in/reveea-joy-villanueva-2b010237" target="_blank" rel="noopener"><span class="link-label">LinkedIn Profile</span><span class="link-arrow">↗</span></a>
+            <a class="contact-link" href="https://www.linkedin.com/in/reveea-joy-villanueva-2b010237" target="_blank"
+              rel="noopener"><span class="link-label">LinkedIn Profile</span><span class="link-arrow">↗</span></a>
           </div>
           <div class="contact-next">
             <div class="contact-next-label">What happens next</div>
-            <div class="contact-next-item"><span class="contact-next-num">1</span><span class="contact-next-text"><strong>Book a free discovery call</strong> — 30 minutes, no pitch, just a look at what's worth automating first.</span></div>
-            <div class="contact-next-item"><span class="contact-next-num">2</span><span class="contact-next-text"><strong>Get a scoped plan</strong> — what gets built, in what order, and a realistic timeline.</span></div>
-            <div class="contact-next-item"><span class="contact-next-num">3</span><span class="contact-next-text"><strong>Build, test, handoff</strong> — with documentation, not just a working demo.</span></div>
+            <div class="contact-next-item"><span class="contact-next-num">1</span><span
+                class="contact-next-text"><strong>Book a free discovery call</strong> — 30 minutes, no pitch, just a
+                look at what's worth automating first.</span></div>
+            <div class="contact-next-item"><span class="contact-next-num">2</span><span
+                class="contact-next-text"><strong>Get a scoped plan</strong> — what gets built, in what order, and a
+                realistic timeline.</span></div>
+            <div class="contact-next-item"><span class="contact-next-num">3</span><span
+                class="contact-next-text"><strong>Build, test, handoff</strong> — with documentation, not just a working
+                demo.</span></div>
           </div>
         </div>
         <div class="contact-calendly">
@@ -2157,7 +2207,7 @@
         sys01: {
           tag: 'n8n',
           title: 'Nimbus AI Support Agent',
-          images: ['n8n_nimbus_ingest_kb.png', 'n8n_nimbus_chat_agent.png','n8n_nimbus_sample_chat_widget.png'],
+          images: ['n8n_nimbus_ingest_kb.png', 'n8n_nimbus_chat_agent.png', 'n8n_nimbus_sample_chat_widget.png'],
           problem: 'A SaaS product had no way to answer common product questions instantly — support tickets piled up with the same repeated questions about plans, storage limits and account issues, and customers had to wait for business hours to get an answer.',
           goal: 'Give customers instant, accurate answers pulled from real product documentation, escalate anything the agent can\'t confidently answer and remember context within a conversation — without hiring another support agent.',
           solutionIntro: 'Built an n8n AI Agent wired to a Supabase vector database holding the product\'s documentation, deployed as an embeddable chat widget on a self-hosted server.',
