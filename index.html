@@ -338,6 +338,13 @@
       border-radius: 50%;
       opacity: .45;
       animation: spin 28s linear infinite;
+      transition: opacity .35s ease, inset .35s ease;
+    }
+
+    /* FIX: photo now pops + glows brighter on hover instead of sitting static */
+    .hero-photo-frame:hover .hero-photo-ring {
+      opacity: .8;
+      inset: -18px;
     }
 
     .hero-photo-inner {
@@ -349,6 +356,13 @@
       background: var(--charcoal-deep);
       box-shadow: 0 0 0 8px rgba(127, 184, 217, .035), 0 0 58px rgba(127, 184, 217, .18);
       position: relative;
+      transition: transform .35s cubic-bezier(.16,.8,.3,1), box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .hero-photo-frame:hover .hero-photo-inner {
+      transform: scale(1.04);
+      border-color: var(--cyan-bright);
+      box-shadow: 0 0 0 10px rgba(127, 184, 217, .07), 0 0 90px rgba(127, 184, 217, .38), 0 0 46px rgba(232, 163, 61, .18);
     }
 
     .hero-photo-inner img {
@@ -482,19 +496,20 @@
     }
 
     /* ---------- MARQUEE ---------- */
+    /* FIX: marquee rebuilt as brand-logo pill buttons, seamless background */
     .marquee {
       overflow: hidden;
       white-space: nowrap;
       border-top: 1px dashed var(--line);
       border-bottom: 1px dashed var(--line);
-      background: var(--charcoal-deep);
-      padding: 16px 0;
+      background: transparent;
+      padding: 20px 0;
     }
 
     .marquee-track {
       display: inline-flex;
       width: max-content;
-      animation: marquee 26s linear infinite;
+      animation: marquee 30s linear infinite;
     }
 
     .marquee:hover .marquee-track {
@@ -504,23 +519,54 @@
     .marquee-group {
       display: inline-flex;
       align-items: center;
+      gap: 14px;
+      padding-right: 14px;
     }
 
-    .marquee-group span {
+    .marquee-pill {
       font-family: var(--font-mono);
-      font-size: 13px;
-      letter-spacing: .07em;
+      font-size: 12.5px;
+      letter-spacing: .04em;
       text-transform: uppercase;
-      color: var(--cyan-bright);
-      padding: 0 28px;
+      color: var(--paper);
       display: inline-flex;
       align-items: center;
-      gap: 28px;
+      gap: 10px;
+      padding: 7px 18px 7px 7px;
+      border-radius: 999px;
+      border: 1px solid var(--dot, var(--cyan));
+      background: rgba(255,255,255,0.02);
+      box-shadow: 0 0 16px -5px var(--dot, var(--cyan));
+      transition: transform .2s ease, box-shadow .2s ease;
     }
 
-    .marquee-group span::after {
-      content: '•';
-      color: var(--amber);
+    .marquee:hover .marquee-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 22px -4px var(--dot, var(--cyan));
+    }
+
+    .marquee-icon-wrap {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--dot, var(--cyan));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .marquee-icon-wrap img {
+      width: 13px;
+      height: 13px;
+      filter: brightness(0) invert(1);
+    }
+
+    .marquee-icon-wrap .marquee-glyph {
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      font-family: var(--font-mono);
     }
 
     @keyframes marquee {
@@ -534,28 +580,33 @@
     }
 
     /* ---------- SPEC STRIP ---------- */
+    /* FIX: spec strip rebuilt as individual rounded stat cards, matching reference */
     .spec-strip {
       border-bottom: 1px dashed var(--line);
-      background: var(--charcoal-deep);
+      background: transparent;
+      padding: 40px 0;
     }
 
     .spec-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
     }
 
     .spec-cell {
-      padding: 22px 28px;
-      border-left: 1px dashed var(--line);
-      transition: background .2s ease;
+      padding: 26px 20px;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(127,184,217,0.03);
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease, background .25s ease;
     }
 
     .spec-cell:hover {
-      background: rgba(127, 184, 217, 0.06);
-    }
-
-    .spec-cell:first-child {
-      border-left: none;
+      transform: translateY(-4px);
+      border-color: var(--cyan);
+      background: rgba(127,184,217,0.07);
+      box-shadow: 0 20px 46px -24px rgba(127,184,217,.45), 0 0 0 1px var(--cyan);
     }
 
     .spec-label {
@@ -564,20 +615,20 @@
       letter-spacing: .1em;
       text-transform: uppercase;
       color: var(--cyan);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .spec-value {
       font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 20px;
+      font-weight: 700;
+      font-size: 24px;
       color: var(--paper);
     }
 
     .spec-sub {
       font-size: 12.5px;
       color: var(--paper-dim);
-      margin-top: 2px;
+      margin-top: 4px;
     }
 
     /* ---------- SECTION shell ---------- */
@@ -845,6 +896,7 @@
     }
 
     /* ---------- CONTACT ---------- */
+    /* FIX: contact panel now pops on hover, matching project-card hover language site-wide */
     .contact-panel {
       border: 1px solid var(--line);
       padding: 48px;
@@ -852,11 +904,14 @@
       display: grid;
       grid-template-columns: 1.15fr .85fr;
       gap: 44px;
-      transition: border-color .3s ease;
+      transition: border-color .3s ease, transform .3s ease, box-shadow .3s ease, background .3s ease;
     }
 
     .contact-panel:hover {
       border-color: var(--cyan);
+      transform: translateY(-5px);
+      background: rgba(127,184,217,0.025);
+      box-shadow: 0 0 0 1px var(--cyan), 0 26px 64px -26px rgba(127,184,217,.4), 0 0 50px -14px rgba(232,163,61,.16);
     }
 
     .contact-title {
@@ -873,6 +928,7 @@
       max-width: 46ch;
     }
 
+    /* FIX: profile links now boxed rows with a status dot + arrow, not plain underlined text */
     .contact-links {
       display: flex;
       flex-direction: column;
@@ -882,17 +938,162 @@
 
     .contact-link {
       font-family: var(--font-mono);
-      font-size: 14px;
-      color: var(--cyan-bright);
+      font-size: 13.5px;
+      color: var(--paper);
       text-decoration: none;
-      border-bottom: 1px solid transparent;
-      width: fit-content;
-      transition: transform .2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.015);
+      padding: 12px 16px;
+      transition: border-color .2s ease, color .2s ease, transform .2s ease, background .2s ease;
+    }
+
+    .contact-link .link-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-link .link-label::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    .contact-link .link-arrow {
+      color: var(--paper-dim);
+      font-size: 12px;
+      transition: transform .2s ease, color .2s ease;
     }
 
     .contact-link:hover {
-      border-bottom-color: var(--cyan-bright);
+      border-color: var(--cyan);
+      color: var(--cyan-bright);
       transform: translateX(4px);
+      background: rgba(127,184,217,0.05);
+    }
+
+    .contact-link:hover .link-arrow {
+      transform: translateX(3px);
+      color: var(--cyan-bright);
+    }
+
+    /* FIX: fills the empty space under the profile links with a compact process list */
+    .contact-next {
+      margin-top: 30px;
+      padding-top: 22px;
+      border-top: 1px dashed var(--line);
+    }
+
+    .contact-next-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 14px;
+    }
+
+    .contact-next-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      align-items: flex-start;
+    }
+
+    .contact-next-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--charcoal-deep);
+      background: var(--cyan);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .contact-next-text {
+      font-size: 13.5px;
+      color: var(--paper-dim);
+      line-height: 1.5;
+    }
+
+    .contact-next-text strong {
+      color: var(--paper);
+      font-weight: 600;
+    }
+
+    /* ---------- FAQ ---------- */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.015);
+      transition: border-color .2s ease, background .2s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--cyan);
+      background: rgba(127,184,217,.03);
+    }
+
+    .faq-item[open] {
+      border-color: var(--cyan);
+      background: rgba(127,184,217,.04);
+    }
+
+    .faq-question {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 15.5px;
+      color: var(--paper);
+    }
+
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-family: var(--font-mono);
+      font-size: 18px;
+      color: var(--cyan);
+      flex-shrink: 0;
+      transition: transform .2s ease;
+    }
+
+    .faq-item[open] .faq-question::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      padding: 0 24px 22px;
+      font-size: 14.5px;
+      color: var(--paper-dim);
+      line-height: 1.65;
+      text-align: justify;
     }
 
     .contact-calendly {
@@ -906,7 +1107,7 @@
 
     .contact-calendly iframe {
       width: 100%;
-      height: 420px;
+      height: 700px;
       border: 1px solid var(--line);
       background: #fff;
     }
@@ -1304,10 +1505,6 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .spec-cell:nth-child(3) {
-        border-left: none;
-      }
-
       .about-grid {
         grid-template-columns: 1fr;
       }
@@ -1347,7 +1544,6 @@
     <span class="reg-mark reg-tr"></span>
     <div class="wrap hero-inner">
       <div class="hero-anim">
-        <div class="eyebrow">DRAFT 01 — PORTFOLIO</div>
         <h1 class="name">Vhea Villanueva</h1>
         <div class="role-line">AI &amp; Workflow Automation Specialist</div>
         <p class="hero-copy">
@@ -1441,12 +1637,26 @@
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track" id="marqueeTrack">
       <div class="marquee-group">
-        <span>n8n</span><span>Make.com</span><span>Zapier</span><span>OpenAI API</span><span>AI Chat
-          Agents</span><span>Notion</span><span>HubSpot</span><span>Airtable</span><span>Google Workspace</span>
+        <span class="marquee-pill" style="--dot:#EA4B71"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/n8n.svg" alt=""></span>n8n</span>
+        <span class="marquee-pill" style="--dot:#A21EFF"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/make.svg" alt=""></span>Make.com</span>
+        <span class="marquee-pill" style="--dot:#FF4A00"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/zapier.svg" alt=""></span>Zapier</span>
+        <span class="marquee-pill" style="--dot:#10A37F"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openai.svg" alt=""></span>OpenAI API</span>
+        <span class="marquee-pill" style="--dot:#7FB8D9"><span class="marquee-icon-wrap"><span class="marquee-glyph">AI</span></span>AI Chat Agents</span>
+        <span class="marquee-pill" style="--dot:#EDEDED"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/notion.svg" alt="" style="filter:none;"></span>Notion</span>
+        <span class="marquee-pill" style="--dot:#FF7A59"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/hubspot.svg" alt=""></span>HubSpot</span>
+        <span class="marquee-pill" style="--dot:#FCB400"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/airtable.svg" alt=""></span>Airtable</span>
+        <span class="marquee-pill" style="--dot:#4285F4"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/google.svg" alt=""></span>Google Workspace</span>
       </div>
       <div class="marquee-group">
-        <span>n8n</span><span>Make.com</span><span>Zapier</span><span>OpenAI API</span><span>AI Chat
-          Agents</span><span>Notion</span><span>HubSpot</span><span>Airtable</span><span>Google Workspace</span>
+        <span class="marquee-pill" style="--dot:#EA4B71"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/n8n.svg" alt=""></span>n8n</span>
+        <span class="marquee-pill" style="--dot:#A21EFF"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/make.svg" alt=""></span>Make.com</span>
+        <span class="marquee-pill" style="--dot:#FF4A00"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/zapier.svg" alt=""></span>Zapier</span>
+        <span class="marquee-pill" style="--dot:#10A37F"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openai.svg" alt=""></span>OpenAI API</span>
+        <span class="marquee-pill" style="--dot:#7FB8D9"><span class="marquee-icon-wrap"><span class="marquee-glyph">AI</span></span>AI Chat Agents</span>
+        <span class="marquee-pill" style="--dot:#EDEDED"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/notion.svg" alt="" style="filter:none;"></span>Notion</span>
+        <span class="marquee-pill" style="--dot:#FF7A59"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/hubspot.svg" alt=""></span>HubSpot</span>
+        <span class="marquee-pill" style="--dot:#FCB400"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/airtable.svg" alt=""></span>Airtable</span>
+        <span class="marquee-pill" style="--dot:#4285F4"><span class="marquee-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/google.svg" alt=""></span>Google Workspace</span>
       </div>
     </div>
   </div>
@@ -1470,7 +1680,7 @@
       </div>
       <div class="spec-cell reveal reveal-delay-3">
         <div class="spec-label">Available on</div>
-        <div class="spec-value">Upwork · OLJ · LinkedIn</div>
+        <div class="spec-value">Upwork · LinkedIn</div>
         <div class="spec-sub">Open for projects</div>
       </div>
     </div>
@@ -1521,7 +1731,7 @@
         <div class="timeline-item">
           <div class="timeline-year">NOW</div>
           <div class="timeline-title">AI & Workflow Automation Specialist</div>
-          <div class="timeline-desc">Freelance — Upwork &amp; Contra</div>
+          <div class="timeline-desc">Freelance — Upwork &amp; LinkedIn</div>
         </div>
       </div>
     </div>
@@ -1759,23 +1969,63 @@
     </div>
   </section>
 
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow reveal">04 — FAQ</div>
+        <h2 class="section-title reveal">Questions clients usually ask first.</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary class="faq-question">How is this different from hiring a general virtual assistant?</summary>
+          <div class="faq-answer">Most VAs execute tasks manually inside the tools you already have. I spent 14 years as a software engineer before moving into automation — so instead of doing the repetitive task by hand every time, I build the system that does it, with error handling and logging built in so it keeps working when you're not watching it.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary class="faq-question">What tools do you actually build with?</summary>
+          <div class="faq-answer">Mainly n8n, Make, and Zapier for the automation layer, wired to AI (OpenAI, Claude) for anything that needs judgment rather than just data-moving. On the business-systems side: HubSpot, Notion, Airtable, and Google Workspace. Full stack is listed above.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary class="faq-question">How long does a typical project take?</summary>
+          <div class="faq-answer">Depends entirely on complexity — a single-workflow automation is faster than a multi-system build with AI decision layers. Rather than guess here, I scope an exact timeline on the discovery call once I know what you're actually trying to automate.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary class="faq-question">Do I need to know exactly what to automate before I reach out?</summary>
+          <div class="faq-answer">No. Figuring that out is part of the discovery call — a lot of the value is in identifying which manual process is actually worth automating first, not just building whatever's requested.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary class="faq-question">What happens after the automation is built?</summary>
+          <div class="faq-answer">You get the working system plus documentation — not just a demo that only I understand. Error handling and logging are built in from the start, so issues surface clearly instead of failing silently.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary class="faq-question">Is this a one-off build, or do you offer ongoing support?</summary>
+          <div class="faq-answer">Both, depending on what fits. Some clients want a clean one-off build with full handoff; others prefer ongoing support as their systems grow or new tools get added. We figure out which makes sense on the discovery call.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section id="contact">
     <div class="wrap">
       <div class="contact-panel reveal">
         <span class="reg-mark reg-tl"></span>
         <span class="reg-mark reg-br"></span>
         <div>
-          <div class="eyebrow">04 — Contact</div>
+          <div class="eyebrow">05 — Contact</div>
           <div class="contact-title" style="margin-top:14px;">Have a process that shouldn't be manual anymore?</div>
           <p class="contact-copy">I take on a limited number of automation builds at a time so each one gets actual
             engineering attention. Book a free 30-minute call — no pitch, just a look at what's worth automating first.
           </p>
           <div class="contact-links">
-            <a class="contact-link" href="mailto:villanuevarja@gmail.com">→ villanuevarja@gmail.com</a>
+            <a class="contact-link" href="mailto:villanuevarja@gmail.com"><span class="link-label">Direct Email</span><span class="link-arrow">↗</span></a>
             <a class="contact-link" href="https://www.upwork.com/freelancers/~01a562295772681e01" target="_blank"
-              rel="noopener">→ Upwork profile</a>
-            <a class="contact-link" href="www.linkedin.com/in/reveea-joy-villanueva-2b010237" target="_blank" rel="noopener">→
-              LinkedIn</a>
+              rel="noopener"><span class="link-label">Upwork Profile</span><span class="link-arrow">↗</span></a>
+            <a class="contact-link" href="https://www.linkedin.com/in/reveea-joy-villanueva-2b010237" target="_blank" rel="noopener"><span class="link-label">LinkedIn Profile</span><span class="link-arrow">↗</span></a>
+          </div>
+          <div class="contact-next">
+            <div class="contact-next-label">What happens next</div>
+            <div class="contact-next-item"><span class="contact-next-num">1</span><span class="contact-next-text"><strong>Book a free discovery call</strong> — 30 minutes, no pitch, just a look at what's worth automating first.</span></div>
+            <div class="contact-next-item"><span class="contact-next-num">2</span><span class="contact-next-text"><strong>Get a scoped plan</strong> — what gets built, in what order, and a realistic timeline.</span></div>
+            <div class="contact-next-item"><span class="contact-next-num">3</span><span class="contact-next-text"><strong>Build, test, handoff</strong> — with documentation, not just a working demo.</span></div>
           </div>
         </div>
         <div class="contact-calendly">
