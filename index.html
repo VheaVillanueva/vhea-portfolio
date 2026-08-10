@@ -506,6 +506,15 @@
       padding: 20px 0;
     }
 
+    /* FIX: marquee viewport capped to the same boxed width as spec-strip (.wrap),
+       instead of spanning the full page — on wide screens the visible window was wider
+       than one group's content, so the loop ran out of pills before it could reset,
+       showing blank space. Capping the viewport keeps it always narrower than the content. */
+    .marquee-viewport {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
     .marquee-track {
       display: inline-flex;
       width: max-content;
@@ -1629,7 +1638,8 @@
   </section>
 
   <div class="marquee" aria-hidden="true">
-    <div class="marquee-track" id="marqueeTrack">
+    <div class="wrap marquee-viewport">
+      <div class="marquee-track" id="marqueeTrack">
       <div class="marquee-group">
         <span class="marquee-pill" style="--dot:#EA4B71"><span class="marquee-icon-wrap"><img
               src="assets/logos/n8n.svg" alt=""></span>n8n</span>
@@ -1677,6 +1687,7 @@
               src="assets/logos/google.svg" alt=""></span>Google Workspace</span>
       </div>
     </div>
+  </div>
   </div>
 
   <div class="spec-strip">
