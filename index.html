@@ -1492,6 +1492,18 @@
       color: var(--cyan-bright);
     }
 
+    .modal-video.is-pending {
+      color: var(--paper-dim);
+      border-color: var(--line);
+      cursor: default;
+      opacity: .7;
+    }
+
+    .modal-video.is-pending:hover {
+      border-color: var(--line);
+      color: var(--paper-dim);
+    }
+
     @media (max-width: 860px) {
       .hero-inner {
         grid-template-columns: 1fr;
@@ -2413,7 +2425,7 @@
             'Keep a paper trail — every output is filed automatically, nothing lives only in a chat thread.'
           ],
           stacks: ['n8n', 'Slack', 'Jobs API', 'AI Agent', 'Google Docs', 'Gmail'],
-          video: 'https://www.loom.com/share/your-loom-link-06'
+          video: null
         },
         sys07: {
           tag: 'n8n',
@@ -2446,7 +2458,7 @@
             'Scales to more platforms by adding another publish branch, not more manual work.'
           ],
           stacks: ['n8n', 'Vertex AI (Veo)', 'Data Table', 'Facebook Graph API', 'YouTube API'],
-          video: 'https://www.loom.com/share/your-loom-link-07'
+          video: null
         }
       };
 
@@ -2605,7 +2617,19 @@
         fillList(applyListEl, c.applyBullets);
         fillStacks(stacksEl, c.stacks);
         fillGallery(c.images);
-        videoEl.href = c.video;
+        if (c.video) {
+          videoEl.href = c.video;
+          videoEl.target = '_blank';
+          videoEl.classList.remove('is-pending');
+          videoEl.textContent = '▶ Watch walkthrough';
+          videoEl.removeAttribute('aria-disabled');
+        } else {
+          videoEl.removeAttribute('href');
+          videoEl.removeAttribute('target');
+          videoEl.classList.add('is-pending');
+          videoEl.textContent = '◷ Walkthrough — coming soon';
+          videoEl.setAttribute('aria-disabled', 'true');
+        }
         overlay.classList.add('is-open');
         document.body.style.overflow = 'hidden';
         closeBtn.focus();
