@@ -417,9 +417,19 @@
     }
 
     .tech-intro {
-      max-width: 680px;
       margin-top: 14px;
       color: var(--paper);
+    }
+
+    /* FIX: header restructured to use the unused right-side canvas — intro copy sits
+       left, the AI & Automation card (the flagship group the copy refers to) sits
+       right at the same height, instead of leaving that space empty above the grid. */
+    .tech-header-row {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 18px;
     }
 
     .tech-groups {
@@ -427,6 +437,11 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
       margin-top: 36px;
+    }
+
+    .tech-groups-3col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 0;
     }
 
     .tech-group {
@@ -513,6 +528,7 @@
     .marquee-viewport {
       overflow: hidden;
       white-space: nowrap;
+      padding: 14px 0;
     }
 
     .marquee-track {
@@ -1511,6 +1527,11 @@
         grid-template-columns: 1fr;
       }
 
+      .tech-header-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
       .spec-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1582,19 +1603,23 @@
 
   <section id="technology">
     <div class="wrap">
-      <div class="eyebrow reveal">01 — Technology Stack</div>
-      <h2 class="section-title reveal">Tools I build with. Engineering depth behind them.</h2>
-      <p class="tech-intro reveal">AI automation is the focus; software engineering, cloud, and business systems are the
-        foundation.</p>
-      <div class="tech-groups">
+      <div class="tech-header-row">
+        <div class="tech-header-copy">
+          <div class="eyebrow reveal">01 — Technology Stack</div>
+          <h2 class="section-title reveal">Tools I build with. Engineering depth behind them.</h2>
+          <p class="tech-intro reveal">AI automation is the focus; software engineering, cloud, and business systems
+            are the foundation.</p>
+        </div>
         <div class="tech-group reveal">
           <h3>AI &amp; Automation</h3>
           <div class="tech-list">
             <span class="tech-pill"><img src="assets/logos/n8n.svg" alt="">n8n</span><span class="tech-pill"><img
                 src="assets/logos/make.svg" alt="">Make</span><span class="tech-pill"><img
-                src="assets/logos/zapier.svg" alt="">Zapier</span><span class="tech-pill"><span class="tech-glyph">AI</span>AI Agents</span>
+                src="assets/logos/zapier.svg" alt="">Zapier</span><span class="tech-pill"><span
+                class="tech-glyph">AI</span>AI Agents</span>
             <span class="tech-pill"><img src="assets/logos/openai.svg" alt="">OpenAI</span><span class="tech-pill"><img
-                src="assets/logos/anthropic.svg" alt="">Claude</span><span class="tech-pill"><span class="tech-glyph">↯</span>Webhooks</span>
+                src="assets/logos/anthropic.svg" alt="">Claude</span><span class="tech-pill"><span
+                class="tech-glyph">↯</span>Webhooks</span>
             <span class="tech-pill"><span class="tech-glyph">API</span>REST API</span><span class="tech-pill"><span
                 class="tech-glyph">O</span>OAuth</span><span class="tech-pill"><span
                 class="tech-glyph">S</span>Structured Outputs</span><span class="tech-pill"><span
@@ -1602,6 +1627,8 @@
                 src="assets/logos/supabase.svg" alt="">Supabase</span>
           </div>
         </div>
+      </div>
+      <div class="tech-groups tech-groups-3col">
         <div class="tech-group reveal reveal-delay-1">
           <h3>Business Systems</h3>
           <div class="tech-list">
@@ -1628,9 +1655,11 @@
           <h3>Software Engineering</h3>
           <div class="tech-list">
             <span class="tech-pill"><img src="assets/logos/openjdk.svg" alt="">Java</span><span class="tech-pill"><img
-                src="assets/logos/python.svg" alt="">Python</span><span class="tech-pill"><span class="tech-glyph">DB</span>SQL</span>
+                src="assets/logos/python.svg" alt="">Python</span><span class="tech-pill"><span
+                class="tech-glyph">DB</span>SQL</span>
             <span class="tech-pill"><img src="assets/logos/javascript.svg" alt="">JavaScript</span><span class="tech-pill"><img
-                src="assets/logos/gnubash.svg" alt="">Shell</span><span class="tech-pill"><span class="tech-glyph">PS</span>PowerShell</span>
+                src="assets/logos/gnubash.svg" alt="">Shell</span><span class="tech-pill"><span
+                class="tech-glyph">PS</span>PowerShell</span>
           </div>
         </div>
       </div>
