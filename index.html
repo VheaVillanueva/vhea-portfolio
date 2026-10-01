@@ -1492,6 +1492,14 @@
       color: var(--cyan-bright);
     }
 
+    .modal-video.is-disabled {
+      opacity: .4;
+      pointer-events: none;
+      color: var(--paper-dim);
+      border-color: var(--line);
+      border-style: dashed;
+    }
+
     @media (max-width: 860px) {
       .hero-inner {
         grid-template-columns: 1fr;
@@ -2444,8 +2452,8 @@
             'Keep a paper trail — every output is filed automatically, nothing lives only in a chat thread.',
             'Add human review where it matters — automate repetitive preparation while keeping final decisions and approvals with the user.'
           ],
-          stacks: ['n8n', 'Slack', 'Jobs API', 'AI Agent', 'Google Docs', 'Gmail']
-          
+          stacks: ['n8n', 'Slack', 'Jobs API', 'AI Agent', 'Google Docs', 'Gmail'],
+          video: 'https://www.loom.com/share/your-loom-link-06'
         },
         sys07: {
           tag: 'n8n',
@@ -2510,8 +2518,8 @@
             'Works for any appointment-based business, not just dental: clinics, salons, repair shops, consultants.',
             'Scales to more actions (reminders, waitlists, confirmations) by adding another workflow, not more phone-answering staff.'
           ],
-          stacks: ['n8n', 'Vapi', 'Google Calendar API', 'Airtable', 'Slack']
-          
+          stacks: ['n8n', 'Vapi', 'Google Calendar API', 'Airtable', 'Slack'],
+          video: 'https://www.loom.com/share/your-loom-link-08'
         }
       };
 
@@ -2670,7 +2678,18 @@
         fillList(applyListEl, c.applyBullets);
         fillStacks(stacksEl, c.stacks);
         fillGallery(c.images);
-        videoEl.href = c.video;
+        var hasVideo = c.video && c.video.indexOf('your-loom-link') === -1;
+        if (hasVideo) {
+          videoEl.href = c.video;
+          videoEl.classList.remove('is-disabled');
+          videoEl.removeAttribute('aria-disabled');
+          videoEl.textContent = '▶ Watch walkthrough';
+        } else {
+          videoEl.removeAttribute('href');
+          videoEl.classList.add('is-disabled');
+          videoEl.setAttribute('aria-disabled', 'true');
+          videoEl.textContent = '▶ Walkthrough coming soon';
+        }
         overlay.classList.add('is-open');
         document.body.style.overflow = 'hidden';
         closeBtn.focus();
