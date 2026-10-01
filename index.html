@@ -417,6 +417,7 @@
     }
 
     .tech-intro {
+      max-width: 680px;
       margin-top: 14px;
       color: var(--paper);
     }
@@ -512,7 +513,6 @@
     .marquee-viewport {
       overflow: hidden;
       white-space: nowrap;
-      padding: 14px 0;
     }
 
     .marquee-track {
@@ -651,7 +651,7 @@
 
     .section-head {
       margin-bottom: 44px;
-      max-width: 900px;
+      max-width: 62ch;
     }
 
     .section-title {
@@ -1492,18 +1492,6 @@
       color: var(--cyan-bright);
     }
 
-    .modal-video.is-pending {
-      color: var(--paper-dim);
-      border-color: var(--line);
-      cursor: default;
-      opacity: .7;
-    }
-
-    .modal-video.is-pending:hover {
-      border-color: var(--line);
-      color: var(--paper-dim);
-    }
-
     @media (max-width: 860px) {
       .hero-inner {
         grid-template-columns: 1fr;
@@ -1596,16 +1584,15 @@
     <div class="wrap">
       <div class="eyebrow reveal">01 — Technology Stack</div>
       <h2 class="section-title reveal">Tools I build with. Engineering depth behind them.</h2>
-      <p class="tech-intro reveal">AI automation is the focus; software engineering, cloud, and business systems are
-        the foundation.</p>
+      <p class="tech-intro reveal">AI automation is the focus; software engineering, cloud, and business systems are the
+        foundation.</p>
       <div class="tech-groups">
         <div class="tech-group reveal">
           <h3>AI &amp; Automation</h3>
           <div class="tech-list">
             <span class="tech-pill"><img src="assets/logos/n8n.svg" alt="">n8n</span><span class="tech-pill"><img
-                src="assets/logos/make.svg" alt="">Make</span><span class="tech-pill"><img
-                src="assets/logos/zapier.svg" alt="">Zapier</span><span class="tech-pill"><span
-                class="tech-glyph">AI</span>AI Agents</span>
+                src="assets/logos/make.svg" alt="">Make</span><span class="tech-pill"><img src="assets/logos/zapier.svg"
+                alt="">Zapier</span><span class="tech-pill"><span class="tech-glyph">AI</span>AI Agents</span>
             <span class="tech-pill"><img src="assets/logos/openai.svg" alt="">OpenAI</span><span class="tech-pill"><img
                 src="assets/logos/anthropic.svg" alt="">Claude</span><span class="tech-pill"><span
                 class="tech-glyph">↯</span>Webhooks</span>
@@ -1619,23 +1606,22 @@
         <div class="tech-group reveal reveal-delay-1">
           <h3>Business Systems</h3>
           <div class="tech-list">
-            <span class="tech-pill"><img src="assets/logos/hubspot.svg" alt="">HubSpot</span><span class="tech-pill"><img
-                src="assets/logos/airtable.svg" alt="">Airtable</span><span class="tech-pill"><img
+            <span class="tech-pill"><img src="assets/logos/hubspot.svg" alt="">HubSpot</span><span
+              class="tech-pill"><img src="assets/logos/airtable.svg" alt="">Airtable</span><span class="tech-pill"><img
                 src="assets/logos/notion.svg" alt="">Notion</span>
-            <span class="tech-pill"><img src="assets/logos/google.svg" alt="">Google Workspace</span><span class="tech-pill"><img
-                src="assets/logos/slack.svg" alt="">Slack</span>
+            <span class="tech-pill"><img src="assets/logos/google.svg" alt="">Google Workspace</span><span
+              class="tech-pill"><img src="assets/logos/slack.svg" alt="">Slack</span>
           </div>
         </div>
         <div class="tech-group reveal reveal-delay-2">
           <h3>Cloud &amp; DevOps</h3>
           <div class="tech-list">
-            <span class="tech-pill"><img src="assets/logos/amazonwebservices.svg"
-                alt="">AWS</span><span class="tech-pill"><img
-                src="assets/logos/docker.svg" alt="">Docker</span><span class="tech-pill"><img
+            <span class="tech-pill"><img src="assets/logos/amazonwebservices.svg" alt="">AWS</span><span
+              class="tech-pill"><img src="assets/logos/docker.svg" alt="">Docker</span><span class="tech-pill"><img
                 src="assets/logos/git.svg" alt="">Git</span>
-            <span class="tech-pill"><img src="assets/logos/oracle.svg" alt="">Oracle Cloud</span><span class="tech-pill"><img
-                src="assets/logos/googlecloud.svg" alt="">Google Cloud</span><span class="tech-pill"><img
-                src="assets/logos/postman.svg" alt="">Postman</span>
+            <span class="tech-pill"><img src="assets/logos/oracle.svg" alt="">Oracle Cloud</span><span
+              class="tech-pill"><img src="assets/logos/googlecloud.svg" alt="">Google Cloud</span><span
+              class="tech-pill"><img src="assets/logos/postman.svg" alt="">Postman</span>
           </div>
         </div>
         <div class="tech-group reveal reveal-delay-3">
@@ -1644,8 +1630,8 @@
             <span class="tech-pill"><img src="assets/logos/openjdk.svg" alt="">Java</span><span class="tech-pill"><img
                 src="assets/logos/python.svg" alt="">Python</span><span class="tech-pill"><span
                 class="tech-glyph">DB</span>SQL</span>
-            <span class="tech-pill"><img src="assets/logos/javascript.svg" alt="">JavaScript</span><span class="tech-pill"><img
-                src="assets/logos/gnubash.svg" alt="">Shell</span><span class="tech-pill"><span
+            <span class="tech-pill"><img src="assets/logos/javascript.svg" alt="">JavaScript</span><span
+              class="tech-pill"><img src="assets/logos/gnubash.svg" alt="">Shell</span><span class="tech-pill"><span
                 class="tech-glyph">PS</span>PowerShell</span>
           </div>
         </div>
@@ -1656,54 +1642,52 @@
   <div class="marquee" aria-hidden="true">
     <div class="wrap marquee-viewport">
       <div class="marquee-track" id="marqueeTrack">
-      <div class="marquee-group">
-        <span class="marquee-pill" style="--dot:#EA4B71"><span class="marquee-icon-wrap"><img
-              src="assets/logos/n8n.svg" alt=""></span>n8n</span>
-        <span class="marquee-pill" style="--dot:#A21EFF"><span class="marquee-icon-wrap"><img
-              src="assets/logos/make.svg" alt=""></span>Make.com</span>
-        <span class="marquee-pill" style="--dot:#FF4A00"><span class="marquee-icon-wrap"><img
-              src="assets/logos/zapier.svg" alt=""></span>Zapier</span>
-        <span class="marquee-pill" style="--dot:#10A37F"><span class="marquee-icon-wrap"><img
-              src="assets/logos/openai.svg" alt=""></span>OpenAI</span>
-        <span class="marquee-pill" style="--dot:#D97757"><span class="marquee-icon-wrap"><img
-              src="assets/logos/anthropic.svg" alt=""></span>Claude</span>
-        <span class="marquee-pill" style="--dot:#7FB8D9"><span class="marquee-icon-wrap"><span
-              class="marquee-glyph">AI</span></span>AI Chat Agents</span>
-        <span class="marquee-pill" style="--dot:#EDEDED"><span class="marquee-icon-wrap"><img
-              src="assets/logos/notion.svg" alt=""
-              style="filter:none;"></span>Notion</span>
-        <span class="marquee-pill" style="--dot:#FF7A59"><span class="marquee-icon-wrap"><img
-              src="assets/logos/hubspot.svg" alt=""></span>HubSpot</span>
-        <span class="marquee-pill" style="--dot:#FCB400"><span class="marquee-icon-wrap"><img
-              src="assets/logos/airtable.svg" alt=""></span>Airtable</span>
-        <span class="marquee-pill" style="--dot:#4285F4"><span class="marquee-icon-wrap"><img
-              src="assets/logos/google.svg" alt=""></span>Google Workspace</span>
-      </div>
-      <div class="marquee-group">
-        <span class="marquee-pill" style="--dot:#EA4B71"><span class="marquee-icon-wrap"><img
-              src="assets/logos/n8n.svg" alt=""></span>n8n</span>
-        <span class="marquee-pill" style="--dot:#A21EFF"><span class="marquee-icon-wrap"><img
-              src="assets/logos/make.svg" alt=""></span>Make.com</span>
-        <span class="marquee-pill" style="--dot:#FF4A00"><span class="marquee-icon-wrap"><img
-              src="assets/logos/zapier.svg" alt=""></span>Zapier</span>
-        <span class="marquee-pill" style="--dot:#10A37F"><span class="marquee-icon-wrap"><img
-              src="assets/logos/openai.svg" alt=""></span>OpenAI</span>
-        <span class="marquee-pill" style="--dot:#D97757"><span class="marquee-icon-wrap"><img
-              src="assets/logos/anthropic.svg" alt=""></span>Claude</span>
-        <span class="marquee-pill" style="--dot:#7FB8D9"><span class="marquee-icon-wrap"><span
-              class="marquee-glyph">AI</span></span>AI Chat Agents</span>
-        <span class="marquee-pill" style="--dot:#EDEDED"><span class="marquee-icon-wrap"><img
-              src="assets/logos/notion.svg" alt=""
-              style="filter:none;"></span>Notion</span>
-        <span class="marquee-pill" style="--dot:#FF7A59"><span class="marquee-icon-wrap"><img
-              src="assets/logos/hubspot.svg" alt=""></span>HubSpot</span>
-        <span class="marquee-pill" style="--dot:#FCB400"><span class="marquee-icon-wrap"><img
-              src="assets/logos/airtable.svg" alt=""></span>Airtable</span>
-        <span class="marquee-pill" style="--dot:#4285F4"><span class="marquee-icon-wrap"><img
-              src="assets/logos/google.svg" alt=""></span>Google Workspace</span>
+        <div class="marquee-group">
+          <span class="marquee-pill" style="--dot:#EA4B71"><span class="marquee-icon-wrap"><img
+                src="assets/logos/n8n.svg" alt=""></span>n8n</span>
+          <span class="marquee-pill" style="--dot:#A21EFF"><span class="marquee-icon-wrap"><img
+                src="assets/logos/make.svg" alt=""></span>Make.com</span>
+          <span class="marquee-pill" style="--dot:#FF4A00"><span class="marquee-icon-wrap"><img
+                src="assets/logos/zapier.svg" alt=""></span>Zapier</span>
+          <span class="marquee-pill" style="--dot:#10A37F"><span class="marquee-icon-wrap"><img
+                src="assets/logos/openai.svg" alt=""></span>OpenAI</span>
+          <span class="marquee-pill" style="--dot:#D97757"><span class="marquee-icon-wrap"><img
+                src="assets/logos/anthropic.svg" alt=""></span>Claude</span>
+          <span class="marquee-pill" style="--dot:#7FB8D9"><span class="marquee-icon-wrap"><span
+                class="marquee-glyph">AI</span></span>AI Chat Agents</span>
+          <span class="marquee-pill" style="--dot:#EDEDED"><span class="marquee-icon-wrap"><img
+                src="assets/logos/notion.svg" alt="" style="filter:none;"></span>Notion</span>
+          <span class="marquee-pill" style="--dot:#FF7A59"><span class="marquee-icon-wrap"><img
+                src="assets/logos/hubspot.svg" alt=""></span>HubSpot</span>
+          <span class="marquee-pill" style="--dot:#FCB400"><span class="marquee-icon-wrap"><img
+                src="assets/logos/airtable.svg" alt=""></span>Airtable</span>
+          <span class="marquee-pill" style="--dot:#4285F4"><span class="marquee-icon-wrap"><img
+                src="assets/logos/google.svg" alt=""></span>Google Workspace</span>
+        </div>
+        <div class="marquee-group">
+          <span class="marquee-pill" style="--dot:#EA4B71"><span class="marquee-icon-wrap"><img
+                src="assets/logos/n8n.svg" alt=""></span>n8n</span>
+          <span class="marquee-pill" style="--dot:#A21EFF"><span class="marquee-icon-wrap"><img
+                src="assets/logos/make.svg" alt=""></span>Make.com</span>
+          <span class="marquee-pill" style="--dot:#FF4A00"><span class="marquee-icon-wrap"><img
+                src="assets/logos/zapier.svg" alt=""></span>Zapier</span>
+          <span class="marquee-pill" style="--dot:#10A37F"><span class="marquee-icon-wrap"><img
+                src="assets/logos/openai.svg" alt=""></span>OpenAI</span>
+          <span class="marquee-pill" style="--dot:#D97757"><span class="marquee-icon-wrap"><img
+                src="assets/logos/anthropic.svg" alt=""></span>Claude</span>
+          <span class="marquee-pill" style="--dot:#7FB8D9"><span class="marquee-icon-wrap"><span
+                class="marquee-glyph">AI</span></span>AI Chat Agents</span>
+          <span class="marquee-pill" style="--dot:#EDEDED"><span class="marquee-icon-wrap"><img
+                src="assets/logos/notion.svg" alt="" style="filter:none;"></span>Notion</span>
+          <span class="marquee-pill" style="--dot:#FF7A59"><span class="marquee-icon-wrap"><img
+                src="assets/logos/hubspot.svg" alt=""></span>HubSpot</span>
+          <span class="marquee-pill" style="--dot:#FCB400"><span class="marquee-icon-wrap"><img
+                src="assets/logos/airtable.svg" alt=""></span>Airtable</span>
+          <span class="marquee-pill" style="--dot:#4285F4"><span class="marquee-icon-wrap"><img
+                src="assets/logos/google.svg" alt=""></span>Google Workspace</span>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 
   <div class="spec-strip">
@@ -1963,7 +1947,7 @@
           <div class="panel-top">
             <div>
               <div class="panel-index">SYS / 06</div>
-              <div class="panel-title">AI Jobs Scraper + Resume Optimizer</div>
+              <div class="panel-title">Structured AI Application Pipeline</div>
             </div>
             <div class="panel-stack">n8n</div>
           </div>
@@ -1989,7 +1973,7 @@
           </div>
         </article>
 
-        <article class="panel reveal" data-tool="n8n" style="grid-column: 1 / -1;">
+        <article class="panel reveal" data-tool="n8n">
           <div class="panel-top">
             <div>
               <div class="panel-index">SYS / 07</div>
@@ -2016,6 +2000,38 @@
           <div class="panel-footer">
             <div class="panel-result">→ One scheduled trigger, zero manual steps, two platforms</div>
             <button class="case-btn" data-case="sys07">View case study →</button>
+          </div>
+        </article>
+
+        <article class="panel reveal" data-tool="n8n">
+          <div class="panel-top">
+            <div>
+              <div class="panel-index">SYS / 08</div>
+              <div class="panel-title">AI Scheduling Receptionist</div>
+            </div>
+            <div class="panel-stack">n8n</div>
+          </div>
+          <svg class="node-diagram" viewBox="0 0 400 70" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <rect x="8" y="20" width="80" height="30" stroke="#7FB8D9" />
+            <text x="48" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">VAPI
+              CALL</text>
+            <path class="flow-line" d="M88 35 H150" stroke="#7FB8D9" />
+            <circle class="pulse-node" cx="165" cy="35" r="15" stroke="#E8A33D" stroke-width="1.4" />
+            <text x="165" y="39" fill="#E8A33D" font-family="IBM Plex Mono" font-size="10"
+              text-anchor="middle">AI</text>
+            <path class="flow-line" d="M180 35 H252" stroke="#7FB8D9" />
+            <rect x="252" y="20" width="140" height="30" stroke="#7FB8D9" />panel-stack
+            <text x="322" y="39" fill="#A9D3EB" font-family="IBM Plex Mono" font-size="9" text-anchor="middle">BOOK /
+              CANCEL</text>
+          </svg>
+          <p class="panel-desc">A voice-triggered n8n backend behind a Vapi phone agent — checks live
+            calendar availability, books, reschedules and cancels appointments
+            entirely through conversation. Demo built around a fictional dental
+            clinic, "PearlArc Dental."</p>
+          <div class="panel-footer">
+            <div class="panel-result">→ Replaces front-desk scheduling calls with a phone number</div>
+            <button class="case-btn" data-case="sys08">View case study →</button>
           </div>
         </article>
 
@@ -2396,36 +2412,40 @@
         },
         sys06: {
           tag: 'n8n',
-          title: 'AI Jobs Scraper + Resume Optimizer',
+          title: 'Structured AI Application Pipeline',
           images: ['n8n_ai_job_resume_opt.png', 'n8n_ai_job_resume_opt_p1.png', 'n8n_ai_job_resume_opt_p2.png'],
-          problem: 'Applying to multiple jobs meant manually rewriting a resume and cover message for each one — a slow, repetitive process that\'s easy to fall behind on when new listings show up daily.',
-          goal: 'Turn a single Slack message into a batch of ready-to-send, tailored applications — resume content and proposal or email draft included — with zero manual writing.',
-          solutionIntro: 'A Slack-triggered n8n workflow validates the search query with AI, pulls live listings from a jobs API, then loops through each result generating tailored application content.',
+          problem: 'Creating tailored documents for each opportunity meant manually reviewing listings, rewriting resume content and preparing a matching proposal or email for every record. The repetitive process becomes difficult to manage when new opportunities arrive continuously.',
+          goal: 'Build an automated pipeline that takes a single search request, finds relevant opportunities and generates consistently structured, tailored application materials for each result while keeping the final output ready for human review.',
+          solutionIntro: 'A Slack-triggered n8n workflow validates the search request with AI, retrieves live listings through a jobs API and processes each result through an AI agent that generates structured, context-specific content.',
           solutionBullets: [
-            'A Slack message with a search query triggers the workflow; AI validates the query before anything runs.',
-            'The workflow pulls live job listings from a jobs API matching that query.',
-            'It loops through each listing, and an AI Agent with a structured output schema generates ATS-optimized resume content plus a tailored Upwork proposal or cold email.',
-            'Every result is filed automatically: resume copy updates a Google Doc, and the proposal/email draft goes to Google Drive, Gmail, and Slack.'
+            'A Slack message with a search query triggers the workflow; AI validates the request before any API calls run.',
+            'The workflow retrieves live listings from a jobs API based on the validated query.',
+            'Each listing is processed individually through an AI Agent with a structured output schema.',
+            'The AI generates tailored resume content using relevant keywords and prepares a matching proposal or email draft.',
+            'Results are automatically organized across Google Drive, Gmail, and Slack for review.',
+            'Error handling isolates failed listings so one bad result does not stop the rest of the batch.'
           ],
           featureBullets: [
-            'AI query validation before any API calls run, avoiding wasted requests on bad input.',
-            'Loops through multiple job listings in a single run.',
-            'Structured AI output keeps resume and proposal content consistently formatted.',
-            'Everything filed automatically — no copy-pasting between tools.'
+            'AI query validation before API calls, reducing unnecessary requests from invalid input.',
+            'Batch processing that handles multiple listings in a single workflow execution.',
+            'Structured AI output that keeps generated resume and proposal content consistently formatted.',
+            'Multi-app orchestration connecting Slack, a jobs API, Google Drive and Gmail.',
+            'Error handling that allows the workflow to continue processing when an individual listing fails.'
           ],
-          impactIntro: 'One Slack message now does what used to take an hour per job:',
+          impactIntro: 'A single Slack request can now initiate the complete research and document-generation pipeline:',
           impactBullets: [
             {bold: 'Massive time savings.', text: 'What used to take an hour per job now runs unattended per Slack message.'},
-            {bold: 'More applications, same effort.', text: 'Tailoring content per listing no longer bottlenecks how many jobs get applied to.'},
-            {bold: 'Consistent quality.', text: 'Every resume and proposal follows the same optimized structure.'}
+            {bold: 'Scalable processing.', text: 'Multiple listings can be processed in one workflow instead of handled individually.'},
+            {bold: 'Human review remains in control.', text: 'Generated materials are organized as drafts, allowing the user to review and refine them before sending.'}
           ],
           applyBullets: [
             'Any workflow that means "customize this document per record" can follow the same loop-and-generate pattern.',
             'Trigger complex multi-step work from a single Slack message your team already uses.',
-            'Keep a paper trail — every output is filed automatically, nothing lives only in a chat thread.'
+            'Keep a paper trail — every output is filed automatically, nothing lives only in a chat thread.',
+            'Add human review where it matters — automate repetitive preparation while keeping final decisions and approvals with the user.'
           ],
           stacks: ['n8n', 'Slack', 'Jobs API', 'AI Agent', 'Google Docs', 'Gmail'],
-          video: null
+          video: 'https://www.loom.com/share/your-loom-link-06'
         },
         sys07: {
           tag: 'n8n',
@@ -2458,7 +2478,40 @@
             'Scales to more platforms by adding another publish branch, not more manual work.'
           ],
           stacks: ['n8n', 'Vertex AI (Veo)', 'Data Table', 'Facebook Graph API', 'YouTube API'],
-          video: null
+          video: 'https://youtu.be/Swr8_wQ6zR0'
+        },
+        sys08: {
+          tag: 'n8n',
+          title: 'AI Scheduling Receptionist',
+          images: ['n8n_receptionist.png', 'n8n_receptionist_BookSlots.png', 'n8n_receptionist_GetSlots.png', 'n8n_receptionist_UpdateSlots.png', 'n8n_receptionist_CancelSlots.png', 'n8n_receptionist_CallResults.png'],
+          problem: 'Built as a demo around a fictional dental clinic, PearlArc Dental, whose front desk loses hours each week to routine scheduling calls — checking availability, booking, rescheduling, cancelling — that don\'t need a human making the decision, only someone picking up the phone.',
+          goal: 'Build a voice agent that can hold a full natural scheduling conversation and only ever confirm a booking, reschedule, or cancellation once a real system action has actually succeeded — never based on what the AI assumes happened.',
+          solutionIntro: 'Five n8n workflows sit behind a Vapi voice agent, each one triggered as a live tool call mid-conversation: checking availability, booking, updating, cancelling and logging the call afterward. Every workflow reads and writes directly to Google Calendar and Airtable, so the agent is always working from real, current data.',
+          solutionBullets: [
+            'A live Vapi phone call triggers one of five n8n workflows per request — checking availability, booking, updating, cancelling or logging the call once it ends.',
+            'GetSlots reads live Google Calendar events and returns only genuinely open times.',
+            'BookSlots writes the confirmed appointment to Google Calendar, then logs it to Airtable, and only reports success back to the caller after both actually complete.',
+            'UpdateSlots and CancelSlots both re-locate the original appointment first, so a mismatched request fails safely instead of editing or deleting the wrong booking.'
+          ],
+          featureBullets: [
+            'Live availability check against Google Calendar before ever offering a time to the caller.',
+            'Booking only confirms to the caller after Google Calendar and Airtable both succeed — a failed write never gets reported as a success.',
+            'Reschedule and cancel both re-locate the original appointment before touching it, preventing accidental edits to the wrong booking.',
+            'Every external call reports failures to a shared Slack channel in real time, so a mid-call failure surfaces immediately instead of silently.'
+          ],
+          impactIntro: 'The front desk is removed from routine scheduling entirely:',
+          impactBullets: [
+            {bold: 'Zero manual scheduling calls.', text: 'Callers book, move, or cancel their own appointment by phone without anyone touching a calendar.'},
+            {bold: 'Always accurate.', text: 'Every booking is checked against the live calendar, never an assumption or a stale list of times.'},
+            {bold: 'Nothing fails silently.', text: 'A dropped calendar or CRM call is caught and flagged in real time instead of surfacing later as a confused patient.'}
+          ],
+          applyBullets: [
+            'If your team spends real time on the phone just moving appointments around, this same pattern — voice agent + live calendar + CRM write-back — drops straight into that gap.',
+            'Works for any appointment-based business, not just dental: clinics, salons, repair shops, consultants.',
+            'Scales to more actions (reminders, waitlists, confirmations) by adding another workflow, not more phone-answering staff.'
+          ],
+          stacks: ['n8n', 'Vapi', 'Google Calendar API', 'Airtable', 'Slack'],
+          video: 'https://www.loom.com/share/your-loom-link-08'
         }
       };
 
@@ -2617,19 +2670,7 @@
         fillList(applyListEl, c.applyBullets);
         fillStacks(stacksEl, c.stacks);
         fillGallery(c.images);
-        if (c.video) {
-          videoEl.href = c.video;
-          videoEl.target = '_blank';
-          videoEl.classList.remove('is-pending');
-          videoEl.textContent = '▶ Watch walkthrough';
-          videoEl.removeAttribute('aria-disabled');
-        } else {
-          videoEl.removeAttribute('href');
-          videoEl.removeAttribute('target');
-          videoEl.classList.add('is-pending');
-          videoEl.textContent = '◷ Walkthrough — coming soon';
-          videoEl.setAttribute('aria-disabled', 'true');
-        }
+        videoEl.href = c.video;
         overlay.classList.add('is-open');
         document.body.style.overflow = 'hidden';
         closeBtn.focus();
